@@ -4,9 +4,11 @@ name: Test on Feature Branches
 on:
   push:
     branches-ignore:
+      - development  # Ignore pushes to development branch
       - main  # triggers on all branches except main
   pull_request:
     branches-ignore:
+      - development  # Ignore pushes to development branch
       - main  # triggers on all branches except main
 
 jobs:

@@ -1,0 +1,42 @@
+---
+name: Deploy to Development
+
+on:
+  push:
+    branches:
+      - development    # Only trigger when pushing to development branch (i.e., when PR is merged)
+  workflow_dispatch:   # allows manual triggering
+
+jobs:
+  # 🧪 Call test workflow first
+  test:
+    uses: ./.github/workflows/tests.yml
+
+  # 🚀 Deploy job
+  deploy_dev:
+    needs: test  # Wait for test job to finish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install -g @shopify/cli @shopify/theme
+
+      # Test the token
+      - name: Test Shopify connection
+        run: shopify theme list --store=${{ secrets.SHOPIFY_FLAG_STORE }}
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+
+      # Create development theme if it doesn't exist
+      - name: Create Development Theme
+        run: |
+          if ! shopify theme list --store=${{ secrets.SHOPIFY_FLAG_STORE }} | grep -q "development_cicd"; then
+            shopify theme init development_cicd --store=${{ secrets.SHOPIFY_FLAG_STORE }}
+          fi
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+
+      # Deploy to development theme
+      - name: Deploy to Development Theme
+        run: shopify theme push --force --theme="development_cicd" --store=${{ secrets.SHOPIFY_FLAG_STORE }}
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}

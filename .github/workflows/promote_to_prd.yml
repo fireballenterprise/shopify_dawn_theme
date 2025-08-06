@@ -1,0 +1,32 @@
+---
+name: Promote Development to Production
+
+on:
+  workflow_dispatch:   # Manual trigger only
+    inputs:
+      confirm:
+        description: 'Type "PROMOTE" to confirm deployment to production'
+        required: true
+        default: ''
+
+jobs:
+  # 🚀 Promote to Production
+  promote:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.confirm == 'PROMOTE'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: development  # Checkout development branch
+
+      # Merge development into main
+      - name: Merge development to main
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git fetch origin main
+          git checkout main
+          git merge origin/development
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

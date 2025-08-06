@@ -1,5 +1,5 @@
 ---
-name: Deploy to Shopify
+name: Deploy to Production
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     uses: ./.github/workflows/tests.yml
 
   # 🚀 Deploy job
-  deploy:
+  deploy_prd:
     needs: test  # Wait for test job to finish
     runs-on: ubuntu-latest
     steps:
@@ -27,6 +27,6 @@ jobs:
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
 
       # Actual deploy
-      - run: shopify theme push --force --store=${{ secrets.SHOPIFY_FLAG_STORE }} --theme=${{ secrets.SHOPIFY_THEME_ID }}
+      - run: shopify theme push --force --allow-live --store=${{ secrets.SHOPIFY_FLAG_STORE }} --theme=${{ secrets.SHOPIFY_THEME_ID }}
         env:
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
