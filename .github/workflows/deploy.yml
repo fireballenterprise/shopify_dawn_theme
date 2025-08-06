@@ -27,6 +27,6 @@ jobs:
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
 
       # Actual deploy
-      - run: shopify theme push --force --store=${{ secrets.SHOPIFY_FLAG_STORE }}
+      - run: shopify theme push --force --store=${{ secrets.SHOPIFY_FLAG_STORE }} --theme=${{ secrets.SHOPIFY_THEME_ID }}
         env:
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
