@@ -1,3 +1,4 @@
+---
 name: Deploy to Shopify
 
 on:
@@ -17,8 +18,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm install -g @shopify/cli
-      - run: shopify theme push --force
+      - run: npm install -g @shopify/cli @shopify/theme
+
+      # Test the token
+      - name: Test Shopify connection
+        run: shopify theme list --store=${{ secrets.SHOPIFY_FLAG_STORE }}
         env:
-          SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_FLAG_STORE }}
-          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+
+      # Actual deploy
+      - run: shopify theme push --force --store=${{ secrets.SHOPIFY_FLAG_STORE }}
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
