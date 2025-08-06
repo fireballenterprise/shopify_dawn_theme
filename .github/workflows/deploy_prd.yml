@@ -15,12 +15,6 @@ jobs:
       - uses: actions/checkout@v4
       - run: npm install -g @shopify/cli @shopify/theme
 
-      # Test the token
-      - name: Test Shopify connection
-        run: shopify theme list --store=${{ secrets.SHOPIFY_FLAG_STORE }}
-        env:
-          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
-
       # Actual deploy
       - run: shopify theme push --force --allow-live --store=${{ secrets.SHOPIFY_FLAG_STORE }} --theme=${{ secrets.SHOPIFY_THEME_ID }}
         env:

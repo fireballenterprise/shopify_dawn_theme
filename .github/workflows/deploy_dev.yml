@@ -26,15 +26,6 @@ jobs:
         env:
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
 
-      # Create development theme if it doesn't exist (WIP)
-      - name: Create Development Theme
-        run: |
-          if ! shopify theme list --store=${{ secrets.SHOPIFY_FLAG_STORE }} | grep -q "development"; then
-            shopify theme new --name="development" --store=${{ secrets.SHOPIFY_FLAG_STORE }}
-          fi
-        env:
-          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
-
       # Deploy to development theme
       - name: Deploy to Development Theme
         run: shopify theme push --force --theme="development" --store=${{ secrets.SHOPIFY_FLAG_STORE }}
