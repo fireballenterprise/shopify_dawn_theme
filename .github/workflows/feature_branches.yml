@@ -1,0 +1,14 @@
+---
+name: Test on Feature Branches
+
+on:
+  push:
+    branches-ignore:
+      - main  # triggers on all branches except main
+  pull_request:
+    branches-ignore:
+      - main  # triggers on all branches except main
+
+jobs:
+  test:
+    uses: ./.github/workflows/tests.yml
