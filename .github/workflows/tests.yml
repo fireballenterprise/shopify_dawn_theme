@@ -1,7 +1,8 @@
 ---
-name: Test / Style
+name: Tests
 
-on: [push, pull_request]
+on:
+  workflow_call:
 
 jobs:
   # https://github.com/arthurnn/code-scanning-rubocop
