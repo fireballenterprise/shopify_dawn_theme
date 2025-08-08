@@ -19,11 +19,11 @@
     },
     "featured_collection_EhLg34": {
       "type": "featured-collection",
-      "name": "Fireball 3D Collection",
+      "name": "Collection",
       "settings": {
-        "collection": "fireball3d",
+        "collection": "fireball-fabrication",
         "products_to_show": 25,
-        "title": "Fireball 3D Collection",
+        "title": "Fireball Fabrication Collection",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
