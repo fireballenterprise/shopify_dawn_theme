@@ -21,7 +21,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "t-shirts",
+        "collection": "tops",
         "products_to_show": 8,
         "title": "Tops",
         "heading_size": "h1",
