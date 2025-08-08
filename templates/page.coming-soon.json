@@ -23,14 +23,14 @@
         "heading_GURG37": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "More Fireball Gear",
             "heading_size": "h1"
           }
         },
         "text_mRAQJU": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>More great gear from Fireball is in the works — stay tuned for fresh drops coming soon!</p>",
             "text_style": "body"
           }
         },
