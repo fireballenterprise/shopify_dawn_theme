@@ -17,61 +17,13 @@
         "padding_bottom": 28
       }
     },
-    "collection_list_K4dfqn": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_cW9VJn": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "fireball-gear-patriotic"
-          }
-        },
-        "featured_collection_acFAGn": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "fireball-gear-welding"
-          }
-        },
-        "featured_collection_KbXp9q": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "fireball-gear-fitness"
-          }
-        },
-        "featured_collection_ERB9yV": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "fireball-gear-gaming"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_cW9VJn",
-        "featured_collection_acFAGn",
-        "featured_collection_KbXp9q",
-        "featured_collection_ERB9yV"
-      ],
-      "name": "t:sections.collection-list.presets.name",
-      "settings": {
-        "title": "Collections",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "featured_collection_EhLg34": {
       "type": "featured-collection",
       "name": "Fireball 3D Collection",
       "settings": {
         "collection": "fireball3d",
         "products_to_show": 25,
-        "title": "Fireball 3D Collection",
+        "title": "Fireball 3D",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -97,7 +49,6 @@
   },
   "order": [
     "main",
-    "collection_list_K4dfqn",
     "featured_collection_EhLg34"
   ]
 }
