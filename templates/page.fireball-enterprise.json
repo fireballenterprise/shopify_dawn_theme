@@ -19,11 +19,11 @@
     },
     "featured_collection_EhLg34": {
       "type": "featured-collection",
-      "name": "Fireball 3D Collection",
+      "name": "Fireball Enterprise Collection",
       "settings": {
-        "collection": "fireball3d",
+        "collection": "fireball-enterprise-merch",
         "products_to_show": 25,
-        "title": "Fireball 3D Collection",
+        "title": "Fireball Enterprise Collection",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
