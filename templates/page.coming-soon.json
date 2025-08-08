@@ -33,20 +33,11 @@
             "text": "<p>More great gear from Fireball is in the works — stay tuned for fresh drops coming soon!</p>",
             "text_style": "body"
           }
-        },
-        "button_wgadPV": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
         }
       },
       "block_order": [
         "heading_GURG37",
-        "text_mRAQJU",
-        "button_wgadPV"
+        "text_mRAQJU"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
