@@ -22,7 +22,7 @@
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "tops",
-        "products_to_show": 8,
+        "products_to_show": 12,
         "title": "Tops",
         "heading_size": "h1",
         "description": "",
