@@ -21,9 +21,9 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "drinkware",
+        "collection": "phone-accessories",
         "products_to_show": 12,
-        "title": "Drinkware",
+        "title": "Phone Accessories",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
