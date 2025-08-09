@@ -43,20 +43,27 @@
           "settings": {
             "collection": "fireball-gear-gaming"
           }
+        },
+        "featured_collection_QtrPAn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fireball-gear-heroic"
+          }
         }
       },
       "block_order": [
         "featured_collection_cW9VJn",
         "featured_collection_acFAGn",
         "featured_collection_KbXp9q",
-        "featured_collection_ERB9yV"
+        "featured_collection_ERB9yV",
+        "featured_collection_QtrPAn"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Fireball Gear",
         "heading_size": "h1",
         "image_ratio": "square",
-        "columns_desktop": 4,
+        "columns_desktop": 5,
         "color_scheme": "",
         "show_view_all": false,
         "columns_mobile": "1",
