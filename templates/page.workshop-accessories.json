@@ -21,9 +21,9 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "tops",
+        "collection": "welding-accessories",
         "products_to_show": 12,
-        "title": "Tops",
+        "title": "Welding",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -50,9 +50,9 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "bottoms",
+        "collection": "paint-accessories",
         "products_to_show": 8,
-        "title": "Bottoms",
+        "title": "Painting",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
