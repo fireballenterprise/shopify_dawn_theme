@@ -21,7 +21,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "welding-accessories",
+        "collection": "welding-tools",
         "products_to_show": 12,
         "title": "Welding",
         "heading_size": "h1",
