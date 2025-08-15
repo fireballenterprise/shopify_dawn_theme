@@ -70,6 +70,12 @@
             "collection": "fireball-gear"
           }
         },
+        "featured_collection_yW98Cj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fireball-gear-fitness"
+          }
+        },
         "featured_collection_trTbBj": {
           "type": "featured_collection",
           "settings": {
@@ -81,6 +87,7 @@
         "featured_collection_nRFGGV",
         "featured_collection_Hxdhqp",
         "featured_collection_pbkTEH",
+        "featured_collection_yW98Cj",
         "featured_collection_trTbBj"
       ],
       "name": "t:sections.collection-list.presets.name",
@@ -88,7 +95,7 @@
         "title": "Brands",
         "heading_size": "h0",
         "image_ratio": "square",
-        "columns_desktop": 4,
+        "columns_desktop": 5,
         "color_scheme": "",
         "show_view_all": false,
         "columns_mobile": "1",
