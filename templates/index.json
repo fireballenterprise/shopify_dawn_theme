@@ -393,7 +393,7 @@
       "type": "featured-collection",
       "name": "Featured - Fireball Enterprise",
       "settings": {
-        "collection": "fireball-enterprise-merch",
+        "collection": "fireball-enterprise",
         "products_to_show": 4,
         "title": "Fireball Enterprise",
         "heading_size": "h1",
