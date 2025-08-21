@@ -17,13 +17,57 @@
         "padding_bottom": 28
       }
     },
+    "rich_text_NTC8Fn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ecLe8i": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fireball 3D",
+            "heading_size": "h1"
+          }
+        },
+        "text_JJaGtV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fuel your workshop with precision-built tools and gear from Fireball 3D. Designed and manufactured in the USA, our lineup includes 3D-printed accessories for welding, plasma cutting, lit wall signs, and custom DIY tools. Whether you're a fabricator, maker, or just obsessed with shop efficiency, Fireball 3D delivers rugged, functional gear to supercharge your workflow and style your space.</p>"
+          }
+        },
+        "button_YnMjUJ": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ecLe8i",
+        "text_JJaGtV",
+        "button_YnMjUJ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "featured_collection_EhLg34": {
       "type": "featured-collection",
       "name": "Fireball 3D Collection",
       "settings": {
         "collection": "fireball3d",
         "products_to_show": 25,
-        "title": "Fireball 3D",
+        "title": "Shop All",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -78,6 +122,7 @@
   },
   "order": [
     "main",
+    "rich_text_NTC8Fn",
     "featured_collection_EhLg34",
     "featured_collection_e8ecKQ"
   ]
