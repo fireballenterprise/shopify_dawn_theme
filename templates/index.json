@@ -248,7 +248,7 @@
       "type": "featured-collection",
       "name": "Featured - Fireball 3D",
       "settings": {
-        "collection": "fireball3d",
+        "collection": "fireball-3d",
         "products_to_show": 4,
         "title": "Fireball 3D",
         "heading_size": "h1",
