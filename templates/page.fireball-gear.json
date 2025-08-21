@@ -17,6 +17,50 @@
         "padding_bottom": 28
       }
     },
+    "rich_text_JpBBkC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_EUQ79r": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fireball Gear",
+            "heading_size": "h1"
+          }
+        },
+        "text_bdiN7J": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ignite your style with Fireball Gear — where bold designs meet everyday attitude. This collection brings together our signature line of humorous and relatable t-shirts inspired by gaming culture, everyday chaos, and a dash of patriotic pride. Whether you're repping your love for country, leveling up your look with gamer-inspired prints, or just making people laugh with a sarcastic slogan, there's a Fireball fit for it.</p><p>Pair your tee with matching mugs, hats, or desk gear — all featuring the same graphic punchlines and artwork. From morning coffee to late-night grind, Fireball Gear keeps your personality on full display.</p><p><strong>Work hard. Game harder. Laugh loud. That’s Fireball Gear.</strong></p>"
+          }
+        },
+        "button_qfMMGH": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_EUQ79r",
+        "text_bdiN7J",
+        "button_qfMMGH"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "collection_list_K4dfqn": {
       "type": "collection-list",
       "blocks": {
@@ -220,6 +264,7 @@
   },
   "order": [
     "main",
+    "rich_text_JpBBkC",
     "collection_list_K4dfqn",
     "featured_collection_ADVHwA",
     "featured_collection_6j6nwQ",
