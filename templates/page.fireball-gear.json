@@ -236,7 +236,7 @@
       "type": "featured-collection",
       "name": "Featured collection - Welding",
       "settings": {
-        "collection": "welding",
+        "collection": "welding-clothing",
         "products_to_show": 4,
         "title": "Welding",
         "heading_size": "h1",
