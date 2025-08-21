@@ -49,6 +49,63 @@
         "show_text_below": false
       }
     },
+    "multicolumn_eJD94Y": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_XTmjAV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/F3D_Collection_1.1.png",
+            "title": "Fireball 3D ->",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://pages/fireball3d"
+          }
+        },
+        "column_FhJkgM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Fireball_Gear_Colleciton_1.1_A.png",
+            "title": "Fireball Gear ->",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://pages/fireballgear"
+          }
+        },
+        "column_gwQD8G": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Fireball_Fabrication_Collection_1.1.png",
+            "title": "Fireball Fabrication",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://pages/fireballfabrication"
+          }
+        }
+      },
+      "block_order": [
+        "column_XTmjAV",
+        "column_FhJkgM",
+        "column_gwQD8G"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "collection_list_rcFNe8": {
       "type": "collection-list",
       "blocks": {
@@ -90,6 +147,7 @@
         "featured_collection_yW98Cj",
         "featured_collection_trTbBj"
       ],
+      "disabled": true,
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Brands",
@@ -363,6 +421,7 @@
   },
   "order": [
     "image_banner",
+    "multicolumn_eJD94Y",
     "collection_list_rcFNe8",
     "featured_product_JW4reW",
     "featured_product_FJjdbp",
