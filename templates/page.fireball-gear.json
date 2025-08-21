@@ -67,13 +67,13 @@
         "featured_collection_KbXp9q": {
           "type": "featured_collection",
           "settings": {
-            "collection": "fireball-gear-fitness"
+            "collection": "fitness"
           }
         },
         "featured_collection_ERB9yV": {
           "type": "featured_collection",
           "settings": {
-            "collection": "fireball-gear-gaming"
+            "collection": "gaming"
           }
         },
         "featured_collection_9m8Gtw": {
@@ -91,7 +91,7 @@
         "featured_collection_acFAGn": {
           "type": "featured_collection",
           "settings": {
-            "collection": "fireball-gear-welding"
+            "collection": "welding"
           }
         }
       },
