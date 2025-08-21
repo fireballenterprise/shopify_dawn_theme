@@ -67,7 +67,7 @@
         "featured_collection_pbkTEH": {
           "type": "featured_collection",
           "settings": {
-            "collection": "fireball-gear"
+            "collection": "fireball-gear-1"
           }
         },
         "featured_collection_yW98Cj": {
@@ -306,7 +306,7 @@
       "type": "featured-collection",
       "name": "Featured- Gear",
       "settings": {
-        "collection": "fireball-gear",
+        "collection": "fireball-gear-1",
         "products_to_show": 4,
         "title": "Fireball Gear",
         "heading_size": "h1",
