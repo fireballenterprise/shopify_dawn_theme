@@ -56,7 +56,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/F3D_Collection_1.1.png",
-            "title": "Fireball 3D ->",
+            "title": "Fireball 3D →",
             "text": "",
             "link_label": "",
             "link": "shopify://pages/fireball3d"
@@ -66,7 +66,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/Fireball_Gear_Colleciton_1.1_A.png",
-            "title": "Fireball Gear ->",
+            "title": "Fireball Gear →",
             "text": "",
             "link_label": "",
             "link": "shopify://pages/fireballgear"
@@ -76,7 +76,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/Fireball_Fabrication_Collection_1.1.png",
-            "title": "Fireball Fabrication",
+            "title": "Fireball Fabrication →",
             "text": "",
             "link_label": "",
             "link": "shopify://pages/fireballfabrication"
