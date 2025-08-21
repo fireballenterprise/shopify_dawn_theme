@@ -64,18 +64,6 @@
     "collection_list_K4dfqn": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_cW9VJn": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "patriotic"
-          }
-        },
-        "featured_collection_acFAGn": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "fireball-gear-welding"
-          }
-        },
         "featured_collection_KbXp9q": {
           "type": "featured_collection",
           "settings": {
@@ -93,14 +81,26 @@
           "settings": {
             "collection": "humor"
           }
+        },
+        "featured_collection_cW9VJn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "patriotic"
+          }
+        },
+        "featured_collection_acFAGn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fireball-gear-welding"
+          }
         }
       },
       "block_order": [
-        "featured_collection_cW9VJn",
-        "featured_collection_acFAGn",
         "featured_collection_KbXp9q",
         "featured_collection_ERB9yV",
-        "featured_collection_9m8Gtw"
+        "featured_collection_9m8Gtw",
+        "featured_collection_cW9VJn",
+        "featured_collection_acFAGn"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
@@ -336,10 +336,10 @@
     "main",
     "rich_text_JpBBkC",
     "collection_list_K4dfqn",
-    "featured_collection_ADVHwA",
     "featured_collection_Pqafrz",
     "featured_collection_agDFDh",
     "featured_collection_PddyW4",
+    "featured_collection_ADVHwA",
     "featured_collection_6j6nwQ",
     "collection_list_mhaKRz",
     "featured_collection_QjVkzW"
