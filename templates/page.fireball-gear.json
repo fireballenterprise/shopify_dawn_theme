@@ -335,7 +335,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "fireball-fabrication",
+        "collection": "fireball-fabrication-clothing",
         "products_to_show": 4,
         "title": "Fireball Fabrication",
         "heading_size": "h1",
