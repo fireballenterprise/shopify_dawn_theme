@@ -179,7 +179,7 @@
     },
     "featured_collection_FN49QE": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Featured collection - Lightbox",
       "settings": {
         "collection": "fireball-3d-lightboxes",
         "products_to_show": 4,
