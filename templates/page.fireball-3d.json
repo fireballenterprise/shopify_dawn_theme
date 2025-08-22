@@ -92,7 +92,7 @@
     },
     "featured_collection_JmwkrY": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Featured collection - Paint",
       "settings": {
         "collection": "fireball-3d-painting-accessories",
         "products_to_show": 4,
