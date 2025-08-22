@@ -232,6 +232,76 @@
         "padding_bottom": 36
       }
     },
+    "featured_product_RNJzEA": {
+      "type": "featured-product",
+      "blocks": {
+        "text_YWNtVx": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_qdmFAx": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_jxCPWG": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_pamUHc": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_LbMgkR": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_aDximL": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_KddRGf": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_YWNtVx",
+        "title_qdmFAx",
+        "price_jxCPWG",
+        "variant_picker_pamUHc",
+        "quantity_selector_LbMgkR",
+        "buy_buttons_aDximL",
+        "share_KddRGf"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "crossfire-splash-guard-and-laser-targeting",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_product_FJjdbp": {
       "type": "featured-product",
       "blocks": {
@@ -294,7 +364,7 @@
         "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "cover",
-        "media_position": "left",
+        "media_position": "right",
         "image_zoom": "lightbox",
         "hide_variants": false,
         "enable_video_looping": false,
@@ -424,6 +494,7 @@
     "multicolumn_eJD94Y",
     "collection_list_rcFNe8",
     "featured_product_JW4reW",
+    "featured_product_RNJzEA",
     "featured_product_FJjdbp",
     "featured_collection",
     "featured_collection_VPXNx4",
