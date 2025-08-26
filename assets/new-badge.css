@@ -1,0 +1,19 @@
+/* ======================
+   Custom Product Badges
+   ====================== */
+
+/* New Badge */
+.badge--new {
+  background: #dc2626; /* Fireball red 🔥 */
+  color: #fff;
+  border: none;
+}
+
+/* Optional: fun pulsing effect */
+@keyframes newPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+.badge--new {
+  animation: newPulse 2.4s ease-in-out infinite;
+}
