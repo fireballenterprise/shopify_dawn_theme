@@ -401,13 +401,13 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection_VPXNx4": {
+    "featured_collection_37tkrz": {
       "type": "featured-collection",
-      "name": "Featured - Fabrication",
+      "name": "Featured- Gear",
       "settings": {
-        "collection": "fireball-fabrication",
+        "collection": "fireball-gear-1",
         "products_to_show": 4,
-        "title": "Fireball Fabrication",
+        "title": "Fireball Gear",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -430,13 +430,13 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection_37tkrz": {
+    "featured_collection_VPXNx4": {
       "type": "featured-collection",
-      "name": "Featured- Gear",
+      "name": "Featured - Fabrication",
       "settings": {
-        "collection": "fireball-gear-1",
+        "collection": "fireball-fabrication",
         "products_to_show": 4,
-        "title": "Fireball Gear",
+        "title": "Fireball Fabrication",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -485,8 +485,8 @@
     "featured_product_RNJzEA",
     "featured_product_FJjdbp",
     "featured_collection",
-    "featured_collection_VPXNx4",
     "featured_collection_37tkrz",
+    "featured_collection_VPXNx4",
     "1755939337f08a202b"
   ]
 }
