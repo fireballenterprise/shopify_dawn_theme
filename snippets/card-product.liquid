@@ -140,7 +140,17 @@
                 {{- 'products.product.on_sale' | t -}}
               </span>
             {%- endif -%}
+
+            {%- if card_product.tags contains 'new' -%}
+              <span
+                id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                class="badge badge--bottom-left badge--new"
+              >
+                New
+              </span>
+            {%- endif -%}
           </div>
+
         </div>
       </div>
       <div class="card__content">
