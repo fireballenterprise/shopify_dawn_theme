@@ -27,11 +27,19 @@
             "text": "🚚 Free U.S. Shipping on Orders $100+",
             "link": ""
           }
+        },
+        "announcement_6T6mNJ": {
+          "type": "announcement",
+          "settings": {
+            "text": "🛠 Designed. Built. Delivered. | Fireball Quality Every Time",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "announcement-bar-0",
-        "announcement_ALTUL4"
+        "announcement_ALTUL4",
+        "announcement_6T6mNJ"
       ],
       "settings": {
         "auto_rotate": true,
