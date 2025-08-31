@@ -31,6 +31,20 @@
         "announcement_6T6mNJ": {
           "type": "announcement",
           "settings": {
+            "text": "🎁 Join the Fireball Crew | Get Early Access & Deals",
+            "link": ""
+          }
+        },
+        "announcement_dRrUXb": {
+          "type": "announcement",
+          "settings": {
+            "text": "✨ New Designs Dropping Weekly | Don’t Miss Out",
+            "link": ""
+          }
+        },
+        "announcement_7GnRgT": {
+          "type": "announcement",
+          "settings": {
             "text": "🛠 Designed. Built. Delivered. | Fireball Quality Every Time",
             "link": ""
           }
@@ -39,7 +53,9 @@
       "block_order": [
         "announcement-bar-0",
         "announcement_ALTUL4",
-        "announcement_6T6mNJ"
+        "announcement_6T6mNJ",
+        "announcement_dRrUXb",
+        "announcement_7GnRgT"
       ],
       "settings": {
         "auto_rotate": true,
