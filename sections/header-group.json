@@ -65,10 +65,7 @@
         "announcement_7GnRgT",
         "announcement_9edzxT"
       ],
-      "custom_css": [
-        ".announcement-bar {background-color: #c61a28 !important; color: #ffffff !important; font-weight: 600; /* makes text semi-bold */ font-size: 16px; /* slightly larger */ letter-spacing: 0.5px; /* more spacing for readability */}",
-        ".announcement-bar:hover {text-shadow: 0 0 6px rgba(255,255,255,0.7);}"
-      ],
+      "custom_css": [],
       "settings": {
         "auto_rotate": true,
         "change_slides_speed": 5,
