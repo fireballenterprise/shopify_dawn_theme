@@ -20,25 +20,8 @@
             "text": "🔥 Custom Made in the USA | Small-Batch, High Quality",
             "link": ""
           }
-        }
-      },
-      "block_order": [
-        "announcement-bar-0"
-      ],
-      "settings": {
-        "auto_rotate": true,
-        "change_slides_speed": 5,
-        "color_scheme": "scheme-1",
-        "show_line_separator": true,
-        "show_social": false,
-        "enable_country_selector": false,
-        "enable_language_selector": false
-      }
-    },
-    "announcement_bar_JDRm9w": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement_NCGEDq": {
+        },
+        "announcement_ALTUL4": {
           "type": "announcement",
           "settings": {
             "text": "🚚 Free U.S. Shipping on Orders $100+",
@@ -47,13 +30,13 @@
         }
       },
       "block_order": [
-        "announcement_NCGEDq"
+        "announcement-bar-0",
+        "announcement_ALTUL4"
       ],
-      "name": "t:sections.announcement-bar.presets.name",
       "settings": {
         "auto_rotate": true,
         "change_slides_speed": 5,
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "show_line_separator": true,
         "show_social": false,
         "enable_country_selector": false,
@@ -82,7 +65,6 @@
   },
   "order": [
     "announcement-bar",
-    "announcement_bar_JDRm9w",
     "header"
   ]
 }
