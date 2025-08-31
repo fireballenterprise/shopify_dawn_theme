@@ -45,6 +45,13 @@
         "announcement_7GnRgT": {
           "type": "announcement",
           "settings": {
+            "text": "💥 Small-Batch Manufacturing | No Mass-Produced Junk",
+            "link": ""
+          }
+        },
+        "announcement_9edzxT": {
+          "type": "announcement",
+          "settings": {
             "text": "🛠 Designed. Built. Delivered. | Fireball Quality Every Time",
             "link": ""
           }
@@ -55,7 +62,8 @@
         "announcement_ALTUL4",
         "announcement_6T6mNJ",
         "announcement_dRrUXb",
-        "announcement_7GnRgT"
+        "announcement_7GnRgT",
+        "announcement_9edzxT"
       ],
       "settings": {
         "auto_rotate": true,
