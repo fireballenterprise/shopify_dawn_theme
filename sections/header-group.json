@@ -65,6 +65,9 @@
         "announcement_7GnRgT",
         "announcement_9edzxT"
       ],
+      "custom_css": [
+        ".announcement-bar {background-color: #c61a28 !important; color: #ffffff !important; /* makes text white */}"
+      ],
       "settings": {
         "auto_rotate": true,
         "change_slides_speed": 5,
