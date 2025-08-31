@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "🔥 Fueled by Filament & Fury | Free U.S. Shipping $100+",
+            "text": "🔥 Custom Made in the USA | Small-Batch, High Quality",
             "link": ""
           }
         }
@@ -26,9 +26,34 @@
         "announcement-bar-0"
       ],
       "settings": {
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "color_scheme": "scheme-1",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "announcement_bar_JDRm9w": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_NCGEDq": {
+          "type": "announcement",
+          "settings": {
+            "text": "🚚 Free U.S. Shipping on Orders $100+",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_NCGEDq"
+      ],
+      "name": "t:sections.announcement-bar.presets.name",
+      "settings": {
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "color_scheme": "",
         "show_line_separator": true,
         "show_social": false,
         "enable_country_selector": false,
@@ -57,6 +82,7 @@
   },
   "order": [
     "announcement-bar",
+    "announcement_bar_JDRm9w",
     "header"
   ]
 }
