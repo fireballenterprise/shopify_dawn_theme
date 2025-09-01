@@ -24,7 +24,14 @@
         "announcement_ALTUL4": {
           "type": "announcement",
           "settings": {
-            "text": "🚚 Free U.S. Shipping on $100+ orders |  Excludes discounts",
+            "text": "🚚 Free U.S. Shipping on all Orders!",
+            "link": ""
+          }
+        },
+        "announcement_DCwEMU": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
             "link": ""
           }
         },
@@ -60,6 +67,7 @@
       "block_order": [
         "announcement-bar-0",
         "announcement_ALTUL4",
+        "announcement_DCwEMU",
         "announcement_6T6mNJ",
         "announcement_dRrUXb",
         "announcement_7GnRgT",
