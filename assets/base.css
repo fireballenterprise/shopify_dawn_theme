@@ -3597,33 +3597,24 @@ details-disclosure > details {
 }
 
 
-/* Two rows of social icons */
+/* Two rows of social icons for footer */
 .footer-social-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: .6rem;
   margin-top: 1rem;
 }
-
 .footer-social-wrapper .social-row {
   display: flex;
-  align-items: center;
   gap: 1rem;
+  align-items: center;
 }
-
-/* Size & color control for Dawn's inline SVG icons */
-.footer-social-wrapper a svg {
+.footer-social-wrapper .icon {
   width: 22px;
   height: 22px;
   display: block;
-  fill: currentColor;
-  transition: transform .2s ease, color .2s ease, fill .2s ease, opacity .2s ease;
+  fill: currentColor;          /* adopt theme text color */
+  transition: transform .2s, color .2s, fill .2s, opacity .2s;
 }
-
-/* Hover colors per brand */
-.footer-social-wrapper .fireball3d a:hover svg { color: #c61a28; fill: #c61a28; } /* Fireball Red */
-.footer-social-wrapper .fireballgear a:hover svg { color: #ccc; fill: #ccc; }      /* tweak for Gear */
-
-@media (hover:none) {
-  .footer-social-wrapper a svg { transition: none; }
-}
+.footer-social-wrapper .fireball3d a:hover .icon { color:#c61a28; fill:#c61a28; } /* Fireball Red */
+.footer-social-wrapper .fireballgear a:hover .icon { color:#ccc;    fill:#ccc; }   /* tweak as desired */
