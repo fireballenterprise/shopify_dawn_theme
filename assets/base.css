@@ -3597,24 +3597,37 @@ details-disclosure > details {
 }
 
 
-/* Two rows of social icons for footer */
+/* Custom footer socials alignment */
 .footer-social-wrapper {
   display: flex;
   flex-direction: column;
-  gap: .6rem;
-  margin-top: 1rem;
+  align-items: center;       /* center horizontally */
+  justify-content: center;
+  gap: 0.8rem;               /* space between Fireball 3D + Fireball Gear rows */
+  margin: 1rem auto;
+  text-align: center;
 }
+
 .footer-social-wrapper .social-row {
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  gap: 1.2rem;               /* spacing between icons */
 }
+
 .footer-social-wrapper .icon {
-  width: 22px;
-  height: 22px;
-  display: block;
-  fill: currentColor;          /* adopt theme text color */
-  transition: transform .2s, color .2s, fill .2s, opacity .2s;
+  width: 20px;
+  height: 20px;
+  fill: #9ca3af;             /* Tailwind grey-400 (similar to Dawn’s footer) */
+  transition: fill 0.3s ease, transform 0.2s ease;
 }
-.footer-social-wrapper .fireball3d a:hover .icon { color:#c61a28; fill:#c61a28; } /* Fireball Red */
-.footer-social-wrapper .fireballgear a:hover .icon { color:#ccc;    fill:#ccc; }   /* tweak as desired */
+
+.footer-social-wrapper a:hover .icon {
+  fill: #c61a28;             /* Fireball Red on hover */
+  transform: scale(1.1);
+}
+
+/* Make the block smaller & tighter */
+.footer .custom-liquid {
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 0;
+}
