@@ -3631,3 +3631,17 @@ details-disclosure > details {
   margin: 0 auto;
   padding: 0;
 }
+
+/* Shrink custom social footer block */
+.footer .custom-liquid {
+  max-width: 220px;   /* narrow block */
+  margin: 0 auto;     /* center it */
+  padding-top: 0;     /* remove top padding */
+  padding-bottom: 0;  /* remove bottom padding */
+  line-height: 1;     /* tighter line height */
+}
+
+.footer-social-wrapper {
+  gap: 0.4rem;        /* tighten spacing between the 2 rows */
+  margin: 0 auto;     /* no extra margin above/below */
+}
