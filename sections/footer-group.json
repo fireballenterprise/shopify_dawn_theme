@@ -13,17 +13,6 @@
   "sections": {
     "footer": {
       "type": "footer",
-      "blocks": {
-        "brand_information_3fbkVc": {
-          "type": "brand_information",
-          "settings": {
-            "show_social": true
-          }
-        }
-      },
-      "block_order": [
-        "brand_information_3fbkVc"
-      ],
       "settings": {
         "color_scheme": "scheme-3",
         "newsletter_enable": true,
