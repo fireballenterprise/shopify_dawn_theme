@@ -56,13 +56,6 @@
             "link": ""
           }
         },
-        "announcement_9edzxT": {
-          "type": "announcement",
-          "settings": {
-            "text": "🚚 Shipping is included in the price!",
-            "link": ""
-          }
-        },
         "announcement_WzBfMg": {
           "type": "announcement",
           "settings": {
@@ -78,7 +71,6 @@
         "announcement_6T6mNJ",
         "announcement_dRrUXb",
         "announcement_7GnRgT",
-        "announcement_9edzxT",
         "announcement_WzBfMg"
       ],
       "custom_css": [],
