@@ -3596,4 +3596,31 @@ details-disclosure > details {
   }
 }
 
+/* Custom footer social rows */
+.footer-social-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.footer-social-wrapper .social-row {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-social-wrapper .icon {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  transition: fill 0.3s ease;
+}
+
+.footer-social-wrapper .social-row.fireball3d a:hover .icon {
+  fill: #c61a28; /* Fireball Red */
+}
+
+.footer-social-wrapper .social-row.fireballgear a:hover .icon {
+  fill: #333; /* Dark grey or brand color */
+}
 
