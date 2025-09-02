@@ -14,17 +14,17 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "🔥 Custom Made in the USA | Small-Batch, High Quality",
-            "link": ""
-          }
-        },
         "announcement_ALTUL4": {
           "type": "announcement",
           "settings": {
             "text": "🚚 Free U.S. Shipping on all Orders!",
+            "link": ""
+          }
+        },
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "🔥 Custom Made in the USA | Small-Batch, High Quality",
             "link": ""
           }
         },
@@ -58,8 +58,8 @@
         }
       },
       "block_order": [
-        "announcement-bar-0",
         "announcement_ALTUL4",
+        "announcement-bar-0",
         "announcement_6T6mNJ",
         "announcement_dRrUXb",
         "announcement_7GnRgT",
