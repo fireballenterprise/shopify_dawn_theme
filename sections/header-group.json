@@ -28,13 +28,6 @@
             "link": ""
           }
         },
-        "announcement_DCwEMU": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "link": ""
-          }
-        },
         "announcement_6T6mNJ": {
           "type": "announcement",
           "settings": {
@@ -67,7 +60,6 @@
       "block_order": [
         "announcement-bar-0",
         "announcement_ALTUL4",
-        "announcement_DCwEMU",
         "announcement_6T6mNJ",
         "announcement_dRrUXb",
         "announcement_7GnRgT",
