@@ -164,7 +164,7 @@
     },
     "featured_collection_zUM7N8": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "New Items",
       "settings": {
         "collection": "new",
         "products_to_show": 12,
@@ -245,7 +245,7 @@
         "buy_buttons_Ra3bhK",
         "share_nb8dmN"
       ],
-      "name": "Featured product 1",
+      "name": "Tig Tip Block",
       "settings": {
         "product": "tungsten-stick-out-gauge",
         "color_scheme": "",
@@ -315,7 +315,7 @@
         "buy_buttons_aDximL",
         "share_KddRGf"
       ],
-      "name": "t:sections.featured-product.presets.name",
+      "name": "Paint Cones",
       "settings": {
         "product": "adjustable-paint-cones",
         "color_scheme": "",
@@ -385,7 +385,7 @@
         "buy_buttons_LTVUyc",
         "share_dPwenD"
       ],
-      "name": "t:sections.featured-product.presets.name",
+      "name": "Small Paint Jar",
       "settings": {
         "product": "6-oz-touch-up-paint-container",
         "color_scheme": "",
