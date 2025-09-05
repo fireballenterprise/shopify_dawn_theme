@@ -429,24 +429,28 @@
       });
     </script>
 
-    // Set Chat only for US and CA
+    // Only show Chat for specific Countries
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        // Detect visitor country from Shopify Liquid
-        var country = "{{ localization.country.iso_code }}";  
+        // Get visitor's country code from Shopify localization
+        var country = "{{ localization.country.iso_code }}";
 
-        // Only show Shopify Inbox if US or CA
-        if (country !== "US" && country !== "CA") {
+        // Allowed countries array (add more if needed)
+        var allowedCountries = ["US", "CA"];
+
+        // If visitor's country is NOT in the allowed list, hide chat
+        if (allowedCountries.indexOf(country) === -1) {
           var checkChat = setInterval(function() {
             var chatButton = document.querySelector('[data-shopify-chat]');
             if (chatButton) {
-              chatButton.style.display = "none";
+              chatButton.style.display = "none"; // completely hide bubble
               clearInterval(checkChat);
             }
           }, 500);
         }
       });
     </script>
+
 
 
   </body>
