@@ -429,5 +429,25 @@
       });
     </script>
 
+    // Set Chat only for US and CA
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Detect visitor country from Shopify Liquid
+        var country = "{{ localization.country.iso_code }}";  
+
+        // Only show Shopify Inbox if US or CA
+        if (country !== "US" && country !== "CA") {
+          var checkChat = setInterval(function() {
+            var chatButton = document.querySelector('[data-shopify-chat]');
+            if (chatButton) {
+              chatButton.style.display = "none";
+              clearInterval(checkChat);
+            }
+          }, 500);
+        }
+      });
+    </script>
+
+
   </body>
 </html>
