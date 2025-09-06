@@ -167,6 +167,11 @@
           "button_vertical_position": "lowest",
           "greeting_message": ""
         }
+      },
+      "11511171625957396224": {
+        "type": "shopify://apps/seal-loyalty/blocks/seal-loyalty-widget-embed/747d5fd1-0968-4696-98fa-4e3afa915b09",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
