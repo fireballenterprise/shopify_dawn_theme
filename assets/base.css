@@ -3596,9 +3596,9 @@ details-disclosure > details {
   }
 }
 
-.fireball-earned-points {
-  margin-top: .5rem;
-  font-size: .95rem;
-  color: #c61a28; /* Fireball red */
-  font-weight: 500;
+.fireball-earned-points{
+  margin:.5rem 0;
+  font-size:.95rem;
+  color:#c61a28;
+  font-weight:500
 }
