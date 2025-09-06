@@ -52,9 +52,6 @@
       <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
         <div class="js-contents">
           {%- if cart != empty -%}
-
-          {% render 'fireball-earned-points' %}
-          
             <table class="cart-items">
               <caption class="visually-hidden">
                 {{ 'sections.cart.title' | t }}
@@ -169,6 +166,8 @@
 
                         <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                       {%- endif -%}
+
+                      {% render 'fireball-earned-points' %}
 
                       <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
                         {%- for discount in item.line_level_discount_allocations -%}
