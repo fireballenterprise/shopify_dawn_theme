@@ -51,8 +51,10 @@
     <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
       <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
         <div class="js-contents">
-          {% render 'fireball-earned-points' %}
           {%- if cart != empty -%}
+
+          {% render 'fireball-earned-points' %}
+          
             <table class="cart-items">
               <caption class="visually-hidden">
                 {{ 'sections.cart.title' | t }}
