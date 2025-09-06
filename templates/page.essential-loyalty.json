@@ -59,84 +59,6 @@
         "modal_text_font_size": 14
       }
     },
-    "1757127329f60212c8": {
-      "type": "apps",
-      "blocks": {
-        "essential_loyalty_landing_page_hero_rHLzFr": {
-          "type": "shopify://apps/essential-loyalty/blocks/landing-page-hero/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
-          "settings": {
-            "hero_background_color": "#f8f8f8",
-            "hero_background_image_brightness": 100,
-            "hero_card_background_color": "#ffffff",
-            "hero_card_heading_color": "#000000",
-            "hero_card_text_color": "#000000",
-            "hero_card_position": "left",
-            "hero_card_vertical_position": "center",
-            "hero_card_text_align": "left",
-            "hero_card_gap": 20,
-            "hero_height": 500,
-            "hero_padding": 50,
-            "hero_heading_font_size": 32,
-            "hero_text_font_size": 16,
-            "hero_height_mobile": 300,
-            "hero_padding_mobile": 20,
-            "hero_heading_font_size_mobile": 24,
-            "hero_text_font_size_mobile": 14,
-            "hero_mobile_container_position": "below_hero"
-          }
-        }
-      },
-      "block_order": [
-        "essential_loyalty_landing_page_hero_rHLzFr"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "17571272992a1960cb": {
-      "type": "apps",
-      "blocks": {
-        "essential_loyalty_landing_page_ways_to_earn_faUwFp": {
-          "type": "shopify://apps/essential-loyalty/blocks/landing-page-ways-to-earn/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
-          "settings": {
-            "wte_background_color": "",
-            "wte_section_heading_color": "#000000",
-            "wte_section_text_color": "#000000"
-          }
-        }
-      },
-      "block_order": [
-        "essential_loyalty_landing_page_ways_to_earn_faUwFp"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "17571273000cdbe147": {
-      "type": "apps",
-      "blocks": {
-        "essential_loyalty_landing_page_ways_to_redeem_pMUmxb": {
-          "type": "shopify://apps/essential-loyalty/blocks/landing-page-ways-to-redeem/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
-          "settings": {
-            "wtr_background_color": "",
-            "wtr_section_heading_color": "#000000",
-            "wtr_section_text_color": "#000000"
-          }
-        }
-      },
-      "block_order": [
-        "essential_loyalty_landing_page_ways_to_redeem_pMUmxb"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "1757127409af3e953e": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
     "loyalty_tiers_fireball_CFXGk4": {
       "type": "loyalty-tiers-fireball",
       "blocks": {
@@ -209,6 +131,50 @@
         "subheading": "Join our VIP program and get exclusive rewards"
       }
     },
+    "17571272992a1960cb": {
+      "type": "apps",
+      "blocks": {
+        "essential_loyalty_landing_page_ways_to_earn_faUwFp": {
+          "type": "shopify://apps/essential-loyalty/blocks/landing-page-ways-to-earn/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
+          "settings": {
+            "wte_background_color": "",
+            "wte_section_heading_color": "#000000",
+            "wte_section_text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "essential_loyalty_landing_page_ways_to_earn_faUwFp"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "17571273000cdbe147": {
+      "type": "apps",
+      "blocks": {
+        "essential_loyalty_landing_page_ways_to_redeem_pMUmxb": {
+          "type": "shopify://apps/essential-loyalty/blocks/landing-page-ways-to-redeem/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
+          "settings": {
+            "wtr_background_color": "",
+            "wtr_section_heading_color": "#000000",
+            "wtr_section_text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "essential_loyalty_landing_page_ways_to_redeem_pMUmxb"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1757127409af3e953e": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
     "1757127375445b8123": {
       "type": "apps",
       "blocks": {
@@ -238,11 +204,10 @@
   },
   "order": [
     "essential-loyalty-landing-page",
-    "1757127329f60212c8",
+    "loyalty_tiers_fireball_CFXGk4",
     "17571272992a1960cb",
     "17571273000cdbe147",
     "1757127409af3e953e",
-    "loyalty_tiers_fireball_CFXGk4",
     "1757127375445b8123"
   ]
 }
