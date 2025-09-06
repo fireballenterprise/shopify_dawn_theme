@@ -168,13 +168,13 @@
           "greeting_message": ""
         }
       },
-      "11511171625957396224": {
-        "type": "shopify://apps/seal-loyalty/blocks/seal-loyalty-widget-embed/747d5fd1-0968-4696-98fa-4e3afa915b09",
+      "5918445685253060206": {
+        "type": "shopify://apps/bundler/blocks/bundler-script-append/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
         "disabled": false,
         "settings": {}
       },
-      "5918445685253060206": {
-        "type": "shopify://apps/bundler/blocks/bundler-script-append/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
+      "11560147490181472608": {
+        "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/app-embed/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
         "disabled": false,
         "settings": {}
       }
