@@ -24,8 +24,9 @@ If caller passes subtotal_cents, use it; else default to cart subtotal.
 {%- assign points_earned = subtotal_cents | times: earn_rate_times100 | divided_by: 10000 | floor -%}
 
 {%- if points_earned > 0 -%}
-<div class="fireball-earned-points">
+<div class="fireball-earned-points cart__totals right">
   You’ll earn <strong>{{ points_earned }}</strong> Fire Points
   {%- if customer -%} ({{ vip_label }} tier){%- endif -%}.
 </div>
+
 {%- endif -%}
