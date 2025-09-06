@@ -194,6 +194,78 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "loyalty_tiers_fireball_CFXGk4": {
+      "type": "loyalty-tiers-fireball",
+      "blocks": {
+        "tier_KGKPhc": {
+          "type": "tier",
+          "settings": {
+            "name": "Spark",
+            "points_to_unlock": 0,
+            "multiplier": "1",
+            "early_access": false,
+            "birthday": true,
+            "flash_sales": false
+          }
+        },
+        "tier_fftkdB": {
+          "type": "tier",
+          "settings": {
+            "name": "Flame",
+            "points_to_unlock": 1000,
+            "multiplier": "1.25",
+            "early_access": false,
+            "birthday": true,
+            "flash_sales": false
+          }
+        },
+        "tier_FpG9VJ": {
+          "type": "tier",
+          "settings": {
+            "name": "Blaze",
+            "points_to_unlock": 2500,
+            "multiplier": "1.5",
+            "early_access": true,
+            "birthday": true,
+            "flash_sales": true
+          }
+        },
+        "tier_znHqNE": {
+          "type": "tier",
+          "settings": {
+            "name": "Inferno",
+            "points_to_unlock": 5000,
+            "multiplier": "1.75",
+            "early_access": true,
+            "birthday": true,
+            "flash_sales": true
+          }
+        },
+        "tier_rpzm74": {
+          "type": "tier",
+          "settings": {
+            "name": "Firestorm",
+            "points_to_unlock": 10000,
+            "multiplier": "2",
+            "early_access": true,
+            "birthday": true,
+            "flash_sales": true
+          }
+        }
+      },
+      "block_order": [
+        "tier_KGKPhc",
+        "tier_fftkdB",
+        "tier_FpG9VJ",
+        "tier_znHqNE",
+        "tier_rpzm74"
+      ],
+      "name": "Fireball VIP Tiers",
+      "settings": {
+        "heading": "VIP Program",
+        "subheading": "Join our VIP program and get exclusive rewards"
+      }
     }
   },
   "order": [
@@ -203,6 +275,7 @@
     "17571273000cdbe147",
     "1757127409af3e953e",
     "1757129359848533f0",
-    "1757127375445b8123"
+    "1757127375445b8123",
+    "loyalty_tiers_fireball_CFXGk4"
   ]
 }
