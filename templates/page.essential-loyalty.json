@@ -137,64 +137,6 @@
         "include_margins": true
       }
     },
-    "1757129359848533f0": {
-      "type": "apps",
-      "blocks": {
-        "essential_loyalty_landing_page_vip_tiers_FYLw37": {
-          "type": "shopify://apps/essential-loyalty/blocks/landing-page-vip-tiers/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
-          "settings": {
-            "vip_background_color": "",
-            "vip_section_heading_color": "#000000",
-            "vip_section_text_color": "#000000",
-            "vip_progress_background_color": "#dddddd",
-            "vip_progress_color": "#000000",
-            "vip_table_background_color": "",
-            "vip_table_text_color": "#000000",
-            "vip_table_border_color": "#dddddd",
-            "vip_table_active_background_color": "#f8f8f8",
-            "vip_table_active_color": "#000000",
-            "vip_table_icon_size": 50,
-            "vip_table_name_font_size": 20,
-            "vip_table_threshold_font_size": 16,
-            "vip_table_font_size": 12,
-            "vip_table_head_padding": 20,
-            "vip_table_body_padding": 10
-          }
-        }
-      },
-      "block_order": [
-        "essential_loyalty_landing_page_vip_tiers_FYLw37"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "1757127375445b8123": {
-      "type": "apps",
-      "blocks": {
-        "essential_loyalty_landing_page_faq_7L8WQb": {
-          "type": "shopify://apps/essential-loyalty/blocks/landing-page-faq/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
-          "settings": {
-            "faq_background_color": "",
-            "faq_section_heading_color": "#000000",
-            "faq_section_text_color": "#000000",
-            "faq_section_accordion_text_color": "#000000",
-            "faq_section_question_background_color": "",
-            "faq_section_accordion_border_color": "#000000",
-            "faq_section_question_font_size": 16,
-            "faq_section_answer_font_size": 14,
-            "faq_section_question_font_size_mobile": 16,
-            "faq_section_answer_font_size_mobile": 14
-          }
-        }
-      },
-      "block_order": [
-        "essential_loyalty_landing_page_faq_7L8WQb"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "loyalty_tiers_fireball_CFXGk4": {
       "type": "loyalty-tiers-fireball",
       "blocks": {
@@ -266,6 +208,32 @@
         "heading": "VIP Program",
         "subheading": "Join our VIP program and get exclusive rewards"
       }
+    },
+    "1757127375445b8123": {
+      "type": "apps",
+      "blocks": {
+        "essential_loyalty_landing_page_faq_7L8WQb": {
+          "type": "shopify://apps/essential-loyalty/blocks/landing-page-faq/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
+          "settings": {
+            "faq_background_color": "",
+            "faq_section_heading_color": "#000000",
+            "faq_section_text_color": "#000000",
+            "faq_section_accordion_text_color": "#000000",
+            "faq_section_question_background_color": "",
+            "faq_section_accordion_border_color": "#000000",
+            "faq_section_question_font_size": 16,
+            "faq_section_answer_font_size": 14,
+            "faq_section_question_font_size_mobile": 16,
+            "faq_section_answer_font_size_mobile": 14
+          }
+        }
+      },
+      "block_order": [
+        "essential_loyalty_landing_page_faq_7L8WQb"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -274,8 +242,7 @@
     "17571272992a1960cb",
     "17571273000cdbe147",
     "1757127409af3e953e",
-    "1757129359848533f0",
-    "1757127375445b8123",
-    "loyalty_tiers_fireball_CFXGk4"
+    "loyalty_tiers_fireball_CFXGk4",
+    "1757127375445b8123"
   ]
 }
