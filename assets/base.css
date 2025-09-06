@@ -3596,9 +3596,8 @@ details-disclosure > details {
   }
 }
 
-.fireball-earned-points{
-  margin:.5rem 0;
-  font-size:.95rem;
-  color:#c61a28;
-  font-weight:500
+.fireball-earned-points {
+  font-size: var(--font-body-scale);
+  font-weight: var(--font-heading-weight);
+  color: #c61a28;
 }
