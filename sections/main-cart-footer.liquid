@@ -47,8 +47,11 @@
                 <div>
                   {%- if cart.cart_level_discount_applications.size > 0 -%}
 
-                    {% render 'fireball-earned-points' %}
-                    
+                    <div class="fireball-earned-points cart__totals right">
+                      You’ll earn <strong>{{ points_earned }}</strong> Fire Points
+                      {%- if customer -%} ({{ vip_label }} tier){%- endif -%}.
+                    </div>
+
                     <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
                       {%- for discount in cart.cart_level_discount_applications -%}
                         <li class="discounts__discount discounts__discount--position">
