@@ -3595,3 +3595,10 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+.fireball-earned-points {
+  margin-top: .5rem;
+  font-size: .95rem;
+  color: #c61a28; /* Fireball red */
+  font-weight: 500;
+}
