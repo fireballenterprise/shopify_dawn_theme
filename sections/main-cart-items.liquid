@@ -168,8 +168,6 @@
                       {%- endif -%}
 
                       <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
-
-                      {% render 'fireball-earned-points' %}
                         {%- for discount in item.line_level_discount_allocations -%}
                           <li class="discounts__discount">
                             {{- 'icon-discount.svg' | inline_asset_content -}}
@@ -179,6 +177,7 @@
                       </ul>
                     </td>
 
+                      {% render 'fireball-earned-points' %}
                     <td class="cart-item__totals right medium-hide large-up-hide">
                       {%- render 'loading-spinner' -%}
                       <div class="cart-item__price-wrapper">
