@@ -167,9 +167,9 @@
                         <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                       {%- endif -%}
 
-                      {% render 'fireball-earned-points' %}
-
                       <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+
+                      {% render 'fireball-earned-points' %}
                         {%- for discount in item.line_level_discount_allocations -%}
                           <li class="discounts__discount">
                             {{- 'icon-discount.svg' | inline_asset_content -}}
