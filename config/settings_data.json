@@ -110,7 +110,7 @@
     "brand_headline": "",
     "brand_description": "<p></p>",
     "brand_image_width": 100,
-    "social_facebook_link": "https://www.facebook.com/profile.php?id=61580165008383#",
+    "social_facebook_link": "https://www.facebook.com/profile.php?id=61580253790561",
     "social_instagram_link": "https://instagram.com/fireball3d",
     "social_youtube_link": "https://www.youtube.com/@Fireball3D",
     "social_tiktok_link": "https://tiktok.com/@fireball.3d",
@@ -167,11 +167,6 @@
           "button_vertical_position": "lowest",
           "greeting_message": ""
         }
-      },
-      "5918445685253060206": {
-        "type": "shopify://apps/bundler/blocks/bundler-script-append/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
-        "disabled": false,
-        "settings": {}
       },
       "15891388892413262111": {
         "type": "shopify://apps/essential-loyalty/blocks/theme-extension/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
