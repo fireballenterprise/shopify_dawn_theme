@@ -1,5 +1,5 @@
-/* Fireball NEW badge */
-.card__badge .badge--new {
+/* Fireball Coming Soon Badge */
+.card__badge .badge--coming--soon {
   background: #c61a28;        /* Fireball red */
   color: #fff;
   border: none;
@@ -10,6 +10,6 @@
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.06); }
 }
-.card__badge .badge--new {
+.card__badge .badge--coming--soon {
   animation: newPulse 2.4s ease-in-out infinite;
 }
