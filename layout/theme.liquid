@@ -406,10 +406,10 @@
         }
       }
 
-      // Initial load
-      const saved = localStorage.getItem('theme');
+      // Fireball - Initial load
+      {% comment %} const saved = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setThemeMode(saved || (prefersDark ? 'dark' : 'light'));
+      setThemeMode(saved || (prefersDark ? 'dark' : 'light')); {% endcomment %}
 
       // Toggle button click
       toggle?.addEventListener('click', () => {
