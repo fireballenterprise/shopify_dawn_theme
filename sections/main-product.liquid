@@ -139,7 +139,7 @@
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
                     {% comment %}Fireball - Attach Bundle Color Pickers only for 7-Color-Bundles{% endcomment %}
-                    {% if product.tags contains '7-Color-Bundle' %}
+                    {% if product.tags contains '7-Color-Bundles' %}
                       {% render 'fireball-bundle-colors', section_id: section.id %}
                     {% endif %}
 
