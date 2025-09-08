@@ -31,9 +31,15 @@
   #FireballBundleColors-{{ section_id }} {
     margin-top: 1rem; border: 1px solid rgba(0,0,0,.08); padding: .75rem; border-radius: .5rem;
   }
+ 
+  /* Fireball - make helper note match "Quantity" label size */
   #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__note {
-    font-size: .95rem; margin-bottom: .5rem; opacity: .9;
+    font-size: 1rem;        /* matches Quantity label */
+    font-weight: 600;       /* same emphasis as labels */
+    margin-bottom: .75rem;
+    opacity: 1;             /* remove the lighter look */
   }
+
   #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__row {
     display: grid; grid-template-columns: 160px 1fr; gap: .5rem; align-items: center; margin: .35rem 0;
   }
