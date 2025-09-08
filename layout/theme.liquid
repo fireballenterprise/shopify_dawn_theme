@@ -406,10 +406,14 @@
         }
       }
 
-      // Fireball - Initial load
-      {% comment %} const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setThemeMode(saved || (prefersDark ? 'dark' : 'light')); {% endcomment %}
+      // Fireball - Initial load (manual toggle only)
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        setThemeMode(saved);
+      } else {
+        setThemeMode('light'); // default to light if nothing saved
+      }
+
 
       // Toggle button click
       toggle?.addEventListener('click', () => {
