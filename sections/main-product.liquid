@@ -137,11 +137,12 @@
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                    
-                    {% comment %}Fireball - Attach Bundle Color Pickers to this product only when tagged{% endcomment %}
-                    {% if product.tags contains 'Bundle Colors' %}
+
+                    {% comment %}Fireball - Attach Bundle Color Pickers only for 7-Color-Bundles{% endcomment %}
+                    {% if product.tags contains '7-Color-Bundles' %}
                       {% render 'fireball-bundle-colors', section_id: section.id %}
                     {% endif %}
+
 
                     {{ form | payment_terms }}
                   {%- endform -%}
