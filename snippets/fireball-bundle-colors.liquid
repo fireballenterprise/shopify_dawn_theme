@@ -11,12 +11,12 @@
     {% for i in (1..4) %}
       <div class="fireball-bundle-colors__row" data-index="{{ i }}">
         <label class="fireball-bundle-colors__label" for="BundleColor{{ i }}-{{ section_id }}">
-          Color Selection #{{ i }}
+          Select Color #{{ i }}
         </label>
         <select
           class="fireball-bundle-colors__select"
           id="BundleColor{{ i }}-{{ section_id }}"
-          name="properties[Color Selection #{{ i }}]"
+          name="properties[Select Color #{{ i }}]"
           autocomplete="off"
         >
           <option value="" selected>Please select</option>
