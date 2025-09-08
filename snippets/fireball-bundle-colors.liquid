@@ -56,8 +56,8 @@
 </style>
 
 <script>
-/* Fireball - robust logic for 2-Pack / 4-Pack visibility & validation (Dawn 15.4) */
-(function() {
+/* Fireball - enforce selections + rock-solid 2/4-Pack detection (Dawn 15.4) */
+(function () {
   const sectionId = "{{ section_id }}";
   const wrapper = document.getElementById(`FireballBundleColors-${sectionId}`);
   if (!wrapper) return;
@@ -65,6 +65,10 @@
   const form = wrapper.closest('form[action*="/cart/add"]');
   if (!form) { console.warn('Fireball Bundle: product form not found'); return; }
 
+  // Let native "required" work too
+  try { form.removeAttribute('novalidate'); } catch (e) {}
+
+  // ---- Data helpers ----
   function getProductData() {
     try {
       const el = document.getElementById(`FireballProductData-${sectionId}`);
@@ -80,15 +84,56 @@
     return productData.variants.find(v => String(v.id) === String(vid)) || null;
   }
 
-  // Accept "2 Pack", "2-Pack", "2pk" (same for 4)
-  function getPackCount(variant) {
-    const parts = [];
-    if (variant && variant.title) parts.push(variant.title);
-    if (variant && Array.isArray(variant.options)) parts.push(...variant.options);
-    const s = parts.join(' | ');
+  function matchPack(s) {
     if (/(^|\b)(4\s*[- ]?pack|4\s*pk)\b/i.test(s)) return 4;
     if (/(^|\b)(2\s*[- ]?pack|2\s*pk)\b/i.test(s)) return 2;
     return 0;
+  }
+
+  // Prefer variant data; fallback to DOM (selected option pills / dropdowns)
+  function calcPackCount() {
+    const v = currentVariant();
+    if (v) {
+      const parts = [];
+      if (v.title) parts.push(v.title);
+      if (Array.isArray(v.options)) parts.push(...v.options);
+      const fromVariant = matchPack(parts.join(' | '));
+      if (fromVariant) return fromVariant;
+    }
+    // DOM fallback
+    let s = '';
+    form.querySelectorAll('[name^="options"]').forEach(el => {
+      if (el.type === 'radio' || el.type === 'checkbox') {
+        if (el.checked) s += ' ' + el.value;
+      } else {
+        s += ' ' + (el.value || (el.options && el.options[el.selectedIndex] && el.options[el.selectedIndex].text) || '');
+      }
+    });
+    return matchPack(s);
+  }
+
+  // ---- UI + validation ----
+  function selectionsComplete() {
+    if (wrapper.classList.contains('hidden')) return true;
+    const rows = wrapper.querySelectorAll('.fireball-bundle-row');
+    for (const row of rows) {
+      if (row.style.display === 'none') continue;
+      const sel = row.querySelector('select');
+      if (!sel.value) return false;
+    }
+    return true;
+  }
+
+  function setButtonsEnabled(enabled) {
+    const submitBtn = form.querySelector('[type="submit"][name="add"]');
+    if (submitBtn) submitBtn.disabled = !enabled;
+    const payContainer = form.querySelector('.shopify-payment-button');
+    if (payContainer) {
+      payContainer.style.pointerEvents = enabled ? '' : 'none';
+      payContainer.style.opacity = enabled ? '' : '0.5';
+      const innerBtn = payContainer.querySelector('button');
+      if (innerBtn) innerBtn.disabled = !enabled;
+    }
   }
 
   function showRows(count) {
@@ -105,35 +150,33 @@
       }
     });
     wrapper.classList.toggle('hidden', count === 0);
+    setButtonsEnabled(selectionsComplete());
   }
 
   function refresh() {
-    const v = currentVariant();
-    showRows(getPackCount(v));
+    showRows(calcPackCount());
   }
 
-  document.addEventListener('variant:change', refresh);
-  form.addEventListener('change', function(e) {
-    if ((e.target.name || '').startsWith('options') || e.target.classList.contains('product-variant-id')) refresh();
+  // Block submits if not complete (also stop Dawn's AJAX handler)
+  form.addEventListener('submit', function (ev) {
+    if (!selectionsComplete()) {
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      alert('Please choose a color for each jar in your bundle.');
+      return false;
+    }
   });
-  const idInput = form.querySelector('input.product-variant-id[name="id"]') || form.querySelector('input[name="id"]');
+
+  // Keep in sync with any change
+  document.addEventListener('variant:change', refresh);
+  form.addEventListener('change', refresh);
+  const idInput = form.querySelector('input[name="id"]');
   if (idInput && 'MutationObserver' in window) {
     new MutationObserver(refresh).observe(idInput, { attributes: true, attributeFilter: ['value'] });
   }
 
-  form.addEventListener('submit', function(ev) {
-    if (wrapper.classList.contains('hidden')) return;
-    const selects = wrapper.querySelectorAll('.fireball-bundle-row select');
-    for (const sel of selects) {
-      if (sel.offsetParent !== null && sel.hasAttribute('required') && !sel.value) {
-        ev.preventDefault();
-        sel.focus();
-        alert('Please choose a color for each jar in your bundle.');
-        return false;
-      }
-    }
-  });
-
+  // Initial paint (twice to catch late DOM updates)
   refresh();
+  setTimeout(refresh, 0);
 })();
 </script>
