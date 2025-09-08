@@ -1,0 +1,158 @@
+{% comment %}Fireball - Bundle Color Pickers (Dawn 15.4) - attach inside product-form{% endcomment %}
+{% assign fireball_colors = "Red|Blue|Black|White|Green|Yellow|Orange" | split: "|" %}
+{% assign max_pack = 4 %}
+<div
+  id="FireballBundleColors-{{ section_id }}"
+  class="fireball-bundle-colors hidden"
+  data-max="{{ max_pack }}"
+>
+  {% comment %}Fireball - Instructions text (optional){% endcomment %}
+  <div class="fireball-bundle-colors__note">
+    Choose a color for each jar in your bundle.
+  </div>
+
+  {% comment %}Fireball - Generate up to 4 selects; JS will show the right count{% endcomment %}
+  {% for i in (1..4) %}
+    <div class="fireball-bundle-colors__row" data-index="{{ i }}">
+      <label class="fireball-bundle-colors__label" for="BundleColor{{ i }}-{{ section_id }}">
+        Color #{{ i }}
+      </label>
+      <select
+        class="fireball-bundle-colors__select"
+        id="BundleColor{{ i }}-{{ section_id }}"
+        name="properties[Color #{{ i }}]"
+        autocomplete="off"
+      >
+        <option value="" selected>Please select</option>
+        {% for c in fireball_colors %}
+          <option value="{{ c }}">{{ c }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  /* Fireball - Bundle Color Pickers styles */
+  #FireballBundleColors-{{ section_id }}.hidden { display: none; }
+  #FireballBundleColors-{{ section_id }} {
+    margin-top: 1rem;
+    border: 1px solid rgba(0,0,0,.08);
+    padding: .75rem;
+    border-radius: .5rem;
+  }
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__note {
+    font-size: .95rem;
+    margin-bottom: .5rem;
+    opacity: .9;
+  }
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: .5rem;
+    align-items: center;
+    margin: .35rem 0;
+  }
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__label {
+    font-weight: 600;
+  }
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__select {
+    min-height: 2.4rem;
+  }
+</style>
+
+<script>
+  // Fireball - Bundle Color logic (Dawn 15.4)
+  (function() {
+    const sectionId = "{{ section_id }}";
+    const wrapper = document.getElementById(`FireballBundleColors-${sectionId}`);
+    if (!wrapper) return;
+
+    // Locate the nearest product form within the same section
+    const sectionEl = wrapper.closest(`[id^="MainProduct-"], section`);
+    const form = sectionEl ? sectionEl.querySelector('form[action*="/cart/add"]') : null;
+    if (!form) return;
+
+    // Helper: infer pack count from currently selected variant text/options
+    function getPackCount(variant) {
+      // Prefer variant title scanning (“2 Pack”, “4 Pack”)
+      const title = (variant && variant.title) ? variant.title : '';
+      if (/\b4\s*Pack\b/i.test(title)) return 4;
+      if (/\b2\s*Pack\b/i.test(title)) return 2;
+
+      // Fallback: scan options array
+      if (variant && Array.isArray(variant.options)) {
+        const hit4 = variant.options.find(o => /\b4\s*Pack\b/i.test(o));
+        const hit2 = variant.options.find(o => /\b2\s*Pack\b/i.test(o));
+        if (hit4) return 4;
+        if (hit2) return 2;
+      }
+      return 0; // treat as 1-Pack or non-bundle
+    }
+
+    function showRows(count) {
+      const rows = wrapper.querySelectorAll('.fireball-bundle-colors__row');
+      rows.forEach((row, idx) => {
+        const i = idx + 1;
+        if (i <= count) {
+          row.style.display = '';
+          row.querySelector('select').setAttribute('required', 'required');
+        } else {
+          row.style.display = 'none';
+          // Clear & un-require
+          const sel = row.querySelector('select');
+          sel.value = '';
+          sel.removeAttribute('required');
+        }
+      });
+      wrapper.classList.toggle('hidden', count === 0);
+    }
+
+    function currentVariantFromForm() {
+      // Dawn sets a hidden input named "id" to the selected variant id, and fires variant:change
+      const idInput = form.querySelector('input[name="id"]');
+      const variantId = idInput ? idInput.value : null;
+      if (!variantId) return null;
+
+      // Try to read JSON variants stored on the product section (Dawn embeds on the page)
+      try {
+        const dataEl = sectionEl.querySelector('[type="application/json"][data-product]');
+        if (!dataEl) return null;
+        const productData = JSON.parse(dataEl.textContent);
+        return productData.variants.find(v => String(v.id) === String(variantId)) || null;
+      } catch (e) { return null; }
+    }
+
+    function refresh() {
+      const variant = currentVariantFromForm();
+      const count = getPackCount(variant);
+      showRows(count);
+    }
+
+    // Validate before submit when rows are visible
+    form.addEventListener('submit', function(ev) {
+      if (wrapper.classList.contains('hidden')) return; // nothing to validate
+      const selects = wrapper.querySelectorAll('.fireball-bundle-colors__row[style*="display: none"] select, .fireball-bundle-colors__row:not([style*="display: none"]) select');
+      for (const sel of selects) {
+        if (sel.offsetParent !== null && sel.hasAttribute('required') && !sel.value) {
+          ev.preventDefault();
+          sel.focus();
+          alert('Please choose a color for each jar in your bundle.');
+          return false;
+        }
+      }
+    });
+
+    // React to Dawn’s variant change event
+    document.addEventListener('variant:change', function(e) {
+      // Scope to this section only
+      if (!sectionEl || !sectionEl.contains(e.target)) return;
+      const variant = e.detail && e.detail.variant ? e.detail.variant : null;
+      const count = getPackCount(variant);
+      showRows(count);
+    });
+
+    // Initial paint
+    refresh();
+  })();
+</script>
