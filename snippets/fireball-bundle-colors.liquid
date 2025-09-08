@@ -11,14 +11,15 @@
     {% for i in (1..4) %}
       <div class="fireball-bundle-colors__row" data-index="{{ i }}">
         <label class="fireball-bundle-colors__label" for="BundleColor{{ i }}-{{ section_id }}">
-          Select Color #{{ i }}
+            Select Color #{{ i }}
         </label>
         <select
-          class="fireball-bundle-colors__select"
-          id="BundleColor{{ i }}-{{ section_id }}"
-          name="properties[Select Color #{{ i }}]"
-          autocomplete="off"
+            class="fireball-bundle-colors__select"
+            id="BundleColor{{ i }}-{{ section_id }}"
+            name="properties[Select Color #{{ i }}]"
+            autocomplete="off"
         >
+
           <option value="" selected>Please select</option>
           {% for c in fireball_colors %}
             <option value="{{ c }}">{{ c }}</option>
@@ -81,6 +82,70 @@
     outline: none;
     box-shadow: 0 0 0 3px rgba(0,0,0,.08);
     border-color: rgba(0,0,0,.35);
+  }
+</style>
+
+<style>
+  /* Fireball - polish bundle UI to match Dawn form sizing */
+
+  /* Bigger, bolder caption like "Quantity" */
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__legend {
+    font-size: 1.125rem;   /* ~18px */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: .01em;
+  }
+
+  /* Roomier fieldset and softer background */
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__fieldset {
+    padding: 1rem 1rem .75rem;
+    border-radius: .75rem;
+    background: rgba(0,0,0,.02);
+    border: 1px solid rgba(0,0,0,.1);
+  }
+
+  /* Stack on small screens so selects don't get squeezed */
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__row {
+    display: grid;
+    grid-template-columns: 1fr;      /* mobile: label above select */
+    gap: .75rem;
+    align-items: center;
+    margin: .5rem 0;
+  }
+
+  /* Desktop: two-column with wider label column */
+  @media (min-width: 1024px) {
+    #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__row {
+      grid-template-columns: 240px 1fr;  /* more room for the select */
+    }
+  }
+
+  /* Label sizing to match form labels */
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(0,0,0,.9);
+    line-height: 1.35;
+  }
+
+  /* Select: full width, consistent height, no squish */
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__select {
+    width: 100%;
+    min-height: 48px;            /* same feel as Dawn inputs */
+    padding: .6rem .9rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border: 1px solid rgba(0,0,0,.18);
+    border-radius: .5rem;
+    background: #fff;
+    box-sizing: border-box;
+    min-width: 0;                /* prevents grid overflow/squash */
+  }
+
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__select:focus {
+    outline: none;
+    border-color: rgba(0,0,0,.35);
+    box-shadow: 0 0 0 3px rgba(0,0,0,.08);
   }
 </style>
 
