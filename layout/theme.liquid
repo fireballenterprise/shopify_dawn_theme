@@ -388,6 +388,7 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    {% comment %} Fireball - Dark Mode Controls {% endcomment %}
     <script>
       const toggle = document.getElementById('dark-mode-toggle');
       const html = document.documentElement;
@@ -413,7 +414,6 @@
       } else {
         setThemeMode('light'); // default to light if nothing saved
       }
-
 
       // Toggle button click
       toggle?.addEventListener('click', () => {
