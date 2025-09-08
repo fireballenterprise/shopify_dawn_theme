@@ -1,63 +1,99 @@
-{% comment %}Fireball - Bundle Color Pickers (Dawn 15.4) - Requires product tag "7-Color-Bundles"{% endcomment %}
+{% comment %}Fireball - Bundle Color Pickers (Dawn 15.4) - requires tag "7-Color-Bundles"{% endcomment %}
 {% assign fireball_colors = "Red|Blue|Black|White|Green|Yellow|Orange" | split: "|" %}
 
 <div id="FireballBundleColors-{{ section_id }}" class="fireball-bundle-colors hidden" data-max="4">
-  {% comment %}Fireball - Provide product JSON so JS can always read variants reliably{% endcomment %}
+  <!-- Fireball - Provide product JSON so JS can always read variants reliably -->
   <script type="application/json" id="FireballProductData-{{ section_id }}">{{ product | json }}</script>
 
-  <div class="fireball-bundle-colors__note">Choose a color for each jar in your bundle.</div>
+  <fieldset class="fireball-bundle-colors__fieldset">
+    <legend class="fireball-bundle-colors__legend">Choose a color for each jar in your bundle.</legend>
 
-  {% for i in (1..4) %}
-    <div class="fireball-bundle-colors__row" data-index="{{ i }}">
-      <label class="fireball-bundle-colors__label" for="BundleColor{{ i }}-{{ section_id }}">7-Color-Bundle #{{ i }}</label>
-      <select
-        class="fireball-bundle-colors__select"
-        id="BundleColor{{ i }}-{{ section_id }}"
-        name="properties[7-Color-Bundle #{{ i }}]"
-        autocomplete="off"
-      >
-        <option value="" selected>Please select</option>
-        {% for c in fireball_colors %}
-          <option value="{{ c }}">{{ c }}</option>
-        {% endfor %}
-      </select>
-    </div>
-  {% endfor %}
+    {% for i in (1..4) %}
+      <div class="fireball-bundle-colors__row" data-index="{{ i }}">
+        <label class="fireball-bundle-colors__label" for="BundleColor{{ i }}-{{ section_id }}">
+          Color Selection #{{ i }}
+        </label>
+        <select
+          class="fireball-bundle-colors__select"
+          id="BundleColor{{ i }}-{{ section_id }}"
+          name="properties[Color Selection #{{ i }}]"
+          autocomplete="off"
+        >
+          <option value="" selected>Please select</option>
+          {% for c in fireball_colors %}
+            <option value="{{ c }}">{{ c }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    {% endfor %}
+  </fieldset>
 </div>
 
 <style>
-  /* Fireball - styles */
+  /* Fireball - polished, Dawn-friendly look */
   #FireballBundleColors-{{ section_id }}.hidden { display: none; }
-  #FireballBundleColors-{{ section_id }} {
-    margin-top: 1rem; border: 1px solid rgba(0,0,0,.08); padding: .75rem; border-radius: .5rem;
+
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__fieldset {
+    margin: 1rem 0 0;
+    padding: .85rem;
+    border: 1px solid rgba(0,0,0,.10);
+    border-radius: .75rem;
+    background: rgba(0,0,0,.02);
   }
- 
-  /* Fireball - make helper note match "Quantity" label size */
-  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__note {
-    font-size: 1rem;        /* matches Quantity label */
-    font-weight: 600;       /* same emphasis as labels */
-    margin-bottom: .75rem;
-    opacity: 1;             /* remove the lighter look */
+
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__legend {
+    font-size: 1rem;          /* matches Quantity label size */
+    font-weight: 600;
+    margin: 0 0 .75rem 0;
+    letter-spacing: .01em;
   }
 
   #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__row {
-    display: grid; grid-template-columns: 160px 1fr; gap: .5rem; align-items: center; margin: .35rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5rem;
+    align-items: center;
+    padding: .35rem 0;
   }
-  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__label { font-weight: 600; }
-  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__select { min-height: 2.4rem; }
+
+  /* two-column on desktop so it feels tighter & aligned */
+  @media (min-width: 750px) {
+    #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__row {
+      grid-template-columns: 220px 1fr;
+    }
+  }
+
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__label {
+    font-weight: 600;
+    color: rgba(0,0,0,.85);
+  }
+
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__select {
+    width: 100%;
+    min-height: 44px;                 /* same feel as Dawn inputs */
+    padding: .55rem .75rem;
+    border: 1px solid rgba(0,0,0,.18);
+    border-radius: .5rem;
+    background: #fff;
+  }
+
+  #FireballBundleColors-{{ section_id }} .fireball-bundle-colors__select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,0,0,.08);
+    border-color: rgba(0,0,0,.35);
+  }
 </style>
 
 <script>
+/* Fireball - robust logic for 2-Pack / 4-Pack visibility & validation */
 (function() {
   const sectionId = "{{ section_id }}";
   const wrapper = document.getElementById(`FireballBundleColors-${sectionId}`);
   if (!wrapper) return;
 
-  // Find the enclosing product form (the one that posts to /cart/add)
   const form = wrapper.closest('form[action*="/cart/add"]');
   if (!form) { console.warn('Fireball Bundle: product form not found'); return; }
 
-  // Helpers
   function getProductData() {
     try {
       const el = document.getElementById(`FireballProductData-${sectionId}`);
@@ -87,9 +123,8 @@
   function showRows(count) {
     const rows = wrapper.querySelectorAll('.fireball-bundle-colors__row');
     rows.forEach((row, idx) => {
-      const i = idx + 1;
       const sel = row.querySelector('select');
-      if (i <= count) {
+      if (idx + 1 <= count) {
         row.style.display = '';
         sel.setAttribute('required', 'required');
       } else {
@@ -106,7 +141,6 @@
     showRows(getPackCount(v));
   }
 
-  // Events: Dawn fires 'variant:change'; we also listen to form changes and hidden input mutation
   document.addEventListener('variant:change', refresh);
   form.addEventListener('change', function(e) {
     if ((e.target.name || '').startsWith('options') || e.target.classList.contains('product-variant-id')) refresh();
@@ -116,7 +150,6 @@
     new MutationObserver(refresh).observe(idInput, { attributes: true, attributeFilter: ['value'] });
   }
 
-  // Validate before submit
   form.addEventListener('submit', function(ev) {
     if (wrapper.classList.contains('hidden')) return;
     const selects = wrapper.querySelectorAll('.fireball-bundle-colors__row select');
@@ -130,7 +163,6 @@
     }
   });
 
-  // Initial paint
   refresh();
 })();
 </script>
