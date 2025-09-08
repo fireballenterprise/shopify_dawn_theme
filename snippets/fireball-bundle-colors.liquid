@@ -2,7 +2,7 @@
 {% assign fireball_colors = "Red|Blue|Black|White|Green|Yellow|Orange" | split: "|" %}
 
 <div id="FireballBundleColors-{{ section_id }}" class="fireball-bundle-colors hidden" data-max="4">
-  {#-- Provide product JSON so JS can always read variants reliably --#}
+  {% comment %}Fireball - Provide product JSON so JS can always read variants reliably{% endcomment %}
   <script type="application/json" id="FireballProductData-{{ section_id }}">{{ product | json }}</script>
 
   <div class="fireball-bundle-colors__note">Choose a color for each jar in your bundle.</div>
