@@ -220,6 +220,76 @@
         "padding_bottom": 36
       }
     },
+    "featured_product_FJjdbp": {
+      "type": "featured-product",
+      "blocks": {
+        "text_Da4tch": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_MddU6q": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_z9NiFR": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_9qiVAa": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_CygKPh": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_LTVUyc": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_dPwenD": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_Da4tch",
+        "title_MddU6q",
+        "price_z9NiFR",
+        "variant_picker_9qiVAa",
+        "quantity_selector_CygKPh",
+        "buy_buttons_LTVUyc",
+        "share_dPwenD"
+      ],
+      "name": "Small Paint Jar",
+      "settings": {
+        "product": "6-oz-touch-up-paint-container",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_product_JW4reW": {
       "type": "featured-product",
       "blocks": {
@@ -360,76 +430,6 @@
         "padding_bottom": 36
       }
     },
-    "featured_product_FJjdbp": {
-      "type": "featured-product",
-      "blocks": {
-        "text_Da4tch": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title_MddU6q": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price_z9NiFR": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker_9qiVAa": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_CygKPh": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_LTVUyc": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "share_dPwenD": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "text_Da4tch",
-        "title_MddU6q",
-        "price_z9NiFR",
-        "variant_picker_9qiVAa",
-        "quantity_selector_CygKPh",
-        "buy_buttons_LTVUyc",
-        "share_dPwenD"
-      ],
-      "name": "Small Paint Jar",
-      "settings": {
-        "product": "6-oz-touch-up-paint-container",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "small",
-        "constrain_to_viewport": true,
-        "media_fit": "cover",
-        "media_position": "right",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "name": "Featured - Fireball 3D",
@@ -529,11 +529,11 @@
     "multicolumn_eJD94Y",
     "collection_list_rcFNe8",
     "featured_collection_zUM7N8",
-    "featured_collection_rrrgyx",
-    "featured_product_JW4reW",
-    "featured_product_RNJzEA",
     "featured_product_FJjdbp",
+    "featured_collection_rrrgyx",
+    "featured_product_RNJzEA",
     "featured_collection",
+    "featured_product_JW4reW",
     "featured_collection_37tkrz",
     "featured_collection_VPXNx4",
     "1755939337f08a202b"
