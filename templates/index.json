@@ -956,7 +956,7 @@
     },
     "featured_collection_PqqzCH": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Featured collection - Hats",
       "settings": {
         "collection": "hats",
         "products_to_show": 8,
