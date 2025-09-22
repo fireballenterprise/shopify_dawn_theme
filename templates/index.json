@@ -360,13 +360,13 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection": {
+    "featured_collection_DhJDTi": {
       "type": "featured-collection",
-      "name": "Featured - LED Signs",
+      "name": "Featured collection - Womens Clothing",
       "settings": {
-        "collection": "fireball-3d-lightboxes",
+        "collection": "womens-clothing",
         "products_to_show": 8,
-        "title": "LED Signs",
+        "title": "Women's Clothing",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -376,16 +376,16 @@
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "color_scheme": "scheme-1",
+        "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
-        "show_secondary_image": true,
+        "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 44,
+        "padding_top": 36,
         "padding_bottom": 36
       }
     },
@@ -484,6 +484,76 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_HW8HHX": {
+      "type": "featured-product",
+      "blocks": {
+        "text_PMifrn": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_YAGz4K": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_MATTaJ": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_ekd3wL": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_pURei9": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_4BDt8F": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_TWrgPA": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_PMifrn",
+        "title_YAGz4K",
+        "price_MATTaJ",
+        "variant_picker_ekd3wL",
+        "quantity_selector_pURei9",
+        "buy_buttons_4BDt8F",
+        "share_TWrgPA"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "beast-mode-series-train-at-top-speed-womens-slim-fit-t-shirt",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -756,13 +826,13 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection_eMhM4d": {
+    "featured_collection_PqqzCH": {
       "type": "featured-collection",
-      "name": "Featured collection - Gaming",
+      "name": "Featured collection - Hats",
       "settings": {
-        "collection": "gaming-clothing",
+        "collection": "hats",
         "products_to_show": 8,
-        "title": "Gaming Clothing",
+        "title": "Hats",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -855,13 +925,13 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection_DhJDTi": {
+    "featured_collection": {
       "type": "featured-collection",
-      "name": "Featured collection - Womens Clothing",
+      "name": "Featured - LED Signs",
       "settings": {
-        "collection": "womens-clothing",
+        "collection": "fireball-3d-lightboxes",
         "products_to_show": 8,
-        "title": "Women's Clothing",
+        "title": "LED Signs",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -871,16 +941,16 @@
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
+        "padding_top": 44,
         "padding_bottom": 36
       }
     },
@@ -954,13 +1024,13 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection_PqqzCH": {
+    "featured_collection_eMhM4d": {
       "type": "featured-collection",
-      "name": "Featured collection - Hats",
+      "name": "Featured collection - Gaming",
       "settings": {
-        "collection": "hats",
+        "collection": "gaming-clothing",
         "products_to_show": 8,
-        "title": "Hats",
+        "title": "Gaming Clothing",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -1008,76 +1078,6 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "featured_product_HW8HHX": {
-      "type": "featured-product",
-      "blocks": {
-        "text_PMifrn": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title_YAGz4K": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price_MATTaJ": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker_ekd3wL": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_pURei9": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_4BDt8F": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "share_TWrgPA": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "text_PMifrn",
-        "title_YAGz4K",
-        "price_MATTaJ",
-        "variant_picker_ekd3wL",
-        "quantity_selector_pURei9",
-        "buy_buttons_4BDt8F",
-        "share_TWrgPA"
-      ],
-      "name": "t:sections.featured-product.presets.name",
-      "settings": {
-        "product": "beast-mode-series-train-at-top-speed-womens-slim-fit-t-shirt",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "small",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -1158,7 +1158,7 @@
     "featured_collection_DhJDTi",
     "featured_product_JW4reW",
     "featured_collection_DwUkkW",
-    "featured_product_K6pjL7",
+    "featured_product_HW8HHX",
     "featured_collection_FV7YQR",
     "featured_product_zWGYkA",
     "featured_collection_VwDznJ",
@@ -1168,7 +1168,7 @@
     "featured_collection",
     "featured_product_9EmhVJ",
     "featured_collection_eMhM4d",
-    "featured_product_HW8HHX",
+    "featured_product_K6pjL7",
     "featured_collection_JkUn7g",
     "featured_collection_37tkrz",
     "featured_collection_VPXNx4",
