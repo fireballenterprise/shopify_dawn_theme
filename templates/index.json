@@ -587,6 +587,76 @@
         "padding_bottom": 36
       }
     },
+    "featured_product_zWGYkA": {
+      "type": "featured-product",
+      "blocks": {
+        "text_fLT3pt": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_eLgK3f": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_kPRizg": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_fqXL88": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_3j8EnP": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_FczbB7": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_a38AD6": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_fLT3pt",
+        "title_eLgK3f",
+        "price_kPRizg",
+        "variant_picker_fqXL88",
+        "quantity_selector_3j8EnP",
+        "buy_buttons_FczbB7",
+        "share_a38AD6"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "alien-earth-prodigy-corp-flexfit-embroidered-baseball-cap-white-thread",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection_VwDznJ": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -863,6 +933,7 @@
     "featured_collection_DwUkkW",
     "featured_product_K6pjL7",
     "featured_collection_FV7YQR",
+    "featured_product_zWGYkA",
     "featured_collection_VwDznJ",
     "featured_product_BcjRYr",
     "featured_collection_JkUn7g",
