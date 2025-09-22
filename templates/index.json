@@ -857,7 +857,7 @@
     },
     "featured_collection_DhJDTi": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Featured collection - Womens Clothing",
       "settings": {
         "collection": "womens-clothing",
         "products_to_show": 8,
