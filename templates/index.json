@@ -785,6 +785,204 @@
         "padding_bottom": 36
       }
     },
+    "featured_product_4h8iNq": {
+      "type": "featured-product",
+      "blocks": {
+        "text_x9GbjH": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_CHtPNL": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_RQcFcQ": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_rxLtwN": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_LgkKFk": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_LgAiGy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_khfPFq": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_x9GbjH",
+        "title_CHtPNL",
+        "price_RQcFcQ",
+        "variant_picker_rxLtwN",
+        "quantity_selector_LgkKFk",
+        "buy_buttons_LgAiGy",
+        "share_khfPFq"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "grinder-the-welders-delete-key",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_DhJDTi": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "womens-clothing",
+        "products_to_show": 8,
+        "title": "Women's Clothing",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_9EmhVJ": {
+      "type": "featured-product",
+      "blocks": {
+        "text_37QPyH": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_BaEzen": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_PGnxKA": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_mNGK3J": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_8FK9yy": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_WGKAFe": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_gnMj7g": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_37QPyH",
+        "title_BaEzen",
+        "price_PGnxKA",
+        "variant_picker_mNGK3J",
+        "quantity_selector_8FK9yy",
+        "buy_buttons_WGKAFe",
+        "share_gnMj7g"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "when-in-doubt-workout-tank-top-1",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_PqqzCH": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "hats",
+        "products_to_show": 8,
+        "title": "Hats",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection_JkUn7g": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -966,6 +1164,10 @@
     "featured_collection_VwDznJ",
     "featured_product_BcjRYr",
     "featured_collection_eMhM4d",
+    "featured_product_4h8iNq",
+    "featured_collection_DhJDTi",
+    "featured_product_9EmhVJ",
+    "featured_collection_PqqzCH",
     "featured_collection_JkUn7g",
     "featured_product_HW8HHX",
     "featured_collection_37tkrz",
