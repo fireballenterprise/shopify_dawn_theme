@@ -164,7 +164,7 @@
     },
     "featured_collection_zUM7N8": {
       "type": "featured-collection",
-      "name": "New Items",
+      "name": "Featured collection - New Items",
       "settings": {
         "collection": "new",
         "products_to_show": 12,
@@ -560,7 +560,7 @@
     },
     "featured_collection_FV7YQR": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Featured collection - Tech",
       "settings": {
         "collection": "phone-accessories",
         "products_to_show": 8,
@@ -659,7 +659,7 @@
     },
     "featured_collection_VwDznJ": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Featured collection - Fitness",
       "settings": {
         "collection": "fitness-clothing",
         "products_to_show": 8,
@@ -758,7 +758,7 @@
     },
     "featured_collection_eMhM4d": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Featured collection - Gaming",
       "settings": {
         "collection": "gaming-clothing",
         "products_to_show": 8,
@@ -985,7 +985,7 @@
     },
     "featured_collection_JkUn7g": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Featured collection- All F3D",
       "settings": {
         "collection": "fireball-3d",
         "products_to_show": 12,
@@ -1084,7 +1084,7 @@
     },
     "featured_collection_37tkrz": {
       "type": "featured-collection",
-      "name": "Featured- Gear",
+      "name": "Featured - All Gear",
       "settings": {
         "collection": "fireball-gear-1",
         "products_to_show": 12,
