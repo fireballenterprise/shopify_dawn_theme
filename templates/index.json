@@ -587,6 +587,76 @@
         "padding_bottom": 36
       }
     },
+    "featured_product_BcjRYr": {
+      "type": "featured-product",
+      "blocks": {
+        "text_aRChtq": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_LMxbby": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_gpAKzh": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_mMVm6w": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_UKatVe": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_eQHf4p": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_cCtKJL": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_aRChtq",
+        "title_LMxbby",
+        "price_gpAKzh",
+        "variant_picker_mMVm6w",
+        "quantity_selector_UKatVe",
+        "buy_buttons_eQHf4p",
+        "share_cCtKJL"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "i-have-the-power",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection_JkUn7g": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -612,6 +682,76 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_HW8HHX": {
+      "type": "featured-product",
+      "blocks": {
+        "text_PMifrn": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_YAGz4K": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_MATTaJ": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_ekd3wL": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_pURei9": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_4BDt8F": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_TWrgPA": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_PMifrn",
+        "title_YAGz4K",
+        "price_MATTaJ",
+        "variant_picker_ekd3wL",
+        "quantity_selector_pURei9",
+        "buy_buttons_4BDt8F",
+        "share_TWrgPA"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "beast-mode-series-train-at-top-speed-womens-slim-fit-t-shirt",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -694,7 +834,9 @@
     "featured_collection_DwUkkW",
     "featured_product_K6pjL7",
     "featured_collection_FV7YQR",
+    "featured_product_BcjRYr",
     "featured_collection_JkUn7g",
+    "featured_product_HW8HHX",
     "featured_collection_37tkrz",
     "featured_collection_VPXNx4",
     "1755939337f08a202b"
