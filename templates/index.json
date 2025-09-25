@@ -71,7 +71,7 @@
     },
     "featured_collection_zUM7N8": {
       "type": "featured-collection",
-      "name": "Featured collection - New Items",
+      "name": "Collection - New Items",
       "settings": {
         "collection": "new",
         "products_to_show": 12,
@@ -152,7 +152,7 @@
         "buy_buttons_LTVUyc",
         "share_dPwenD"
       ],
-      "name": "Touch-up Paint Jar & Ladle",
+      "name": "Product - Touch-up Paint Jar & Ladle",
       "settings": {
         "product": "small-touch-up-paint-jar-ladle-combo",
         "color_scheme": "",
@@ -170,7 +170,7 @@
     },
     "featured_collection_rrrgyx": {
       "type": "featured-collection",
-      "name": "Featured - Beast Mode Series",
+      "name": "Collection - Beast Mode Series",
       "settings": {
         "collection": "beast-mode-series",
         "products_to_show": 12,
@@ -251,7 +251,7 @@
         "buy_buttons_aDximL",
         "share_KddRGf"
       ],
-      "name": "Paint Cones",
+      "name": "Product - Paint Cones",
       "settings": {
         "product": "adjustable-paint-cones",
         "color_scheme": "",
@@ -269,7 +269,7 @@
     },
     "featured_collection_DhJDTi": {
       "type": "featured-collection",
-      "name": "Featured collection - Womens Clothing",
+      "name": "Collection - Womens Clothing",
       "settings": {
         "collection": "womens-clothing",
         "products_to_show": 8,
@@ -350,7 +350,7 @@
         "buy_buttons_Ra3bhK",
         "share_nb8dmN"
       ],
-      "name": "Tig Tip Block",
+      "name": "Product - Tig Tip Block",
       "settings": {
         "product": "tungsten-stick-out-gauge",
         "color_scheme": "",
