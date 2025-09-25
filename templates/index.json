@@ -569,7 +569,7 @@
       "name": "Collection - Fitness",
       "settings": {
         "collection": "fitness-clothing",
-        "products_to_show": 8,
+        "products_to_show": 12,
         "title": "Fitness Clothing",
         "heading_size": "h1",
         "description": "",
