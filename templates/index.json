@@ -245,7 +245,7 @@
         "buy_buttons_LTVUyc",
         "share_dPwenD"
       ],
-      "name": "Small Paint Jar",
+      "name": "Touch-up Paint Jar & Ladle",
       "settings": {
         "product": "small-touch-up-paint-jar-ladle-combo",
         "color_scheme": "",
@@ -545,76 +545,6 @@
       "name": "t:sections.featured-product.presets.name",
       "settings": {
         "product": "beast-mode-series-train-at-top-speed-womens-slim-fit-t-shirt",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "small",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "featured_product_K6pjL7": {
-      "type": "featured-product",
-      "blocks": {
-        "text_jPH7zE": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title_xwHB4L": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price_Mi83cg": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker_ACBwAf": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_Cq9dVT": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_3MecqP": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "share_FqB89H": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "text_jPH7zE",
-        "title_xwHB4L",
-        "price_Mi83cg",
-        "variant_picker_ACBwAf",
-        "quantity_selector_Cq9dVT",
-        "buy_buttons_3MecqP",
-        "share_FqB89H"
-      ],
-      "name": "t:sections.featured-product.presets.name",
-      "settings": {
-        "product": "fireball-gear-athletic-long-mens-shorts",
         "color_scheme": "",
         "secondary_background": false,
         "media_size": "small",
@@ -1049,6 +979,76 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_product_K6pjL7": {
+      "type": "featured-product",
+      "blocks": {
+        "text_jPH7zE": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_xwHB4L": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_Mi83cg": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_ACBwAf": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_Cq9dVT": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_3MecqP": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_FqB89H": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_jPH7zE",
+        "title_xwHB4L",
+        "price_Mi83cg",
+        "variant_picker_ACBwAf",
+        "quantity_selector_Cq9dVT",
+        "buy_buttons_3MecqP",
+        "share_FqB89H"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "fireball-gear-athletic-long-mens-shorts",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
