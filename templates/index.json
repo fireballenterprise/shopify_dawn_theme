@@ -1115,9 +1115,9 @@
       "type": "featured-collection",
       "name": "Featured - Fabrication",
       "settings": {
-        "collection": "fireball-fabrication",
-        "products_to_show": 12,
-        "title": "Fireball Fabrication",
+        "collection": "fireball-3d-painting-accessories",
+        "products_to_show": 8,
+        "title": "Painting Accessories",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
