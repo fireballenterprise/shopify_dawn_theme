@@ -272,7 +272,7 @@
       "name": "Collection - Womens Clothing",
       "settings": {
         "collection": "womens-clothing",
-        "products_to_show": 8,
+        "products_to_show": 12,
         "title": "Women's Clothing",
         "heading_size": "h1",
         "description": "",
