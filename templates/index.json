@@ -9,51 +9,12 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "disabled": true,
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "small",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-right",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
     "multicolumn_eJD94Y": {
       "type": "multicolumn",
       "blocks": {
         "column_XTmjAV": {
           "type": "column",
+          "name": "Fireball 3D",
           "settings": {
             "image": "shopify://shop_images/F3D_Collection_1.1.png",
             "title": "",
@@ -64,6 +25,7 @@
         },
         "column_FhJkgM": {
           "type": "column",
+          "name": "Fireball Gear",
           "settings": {
             "image": "shopify://shop_images/Fireball_Gear_Colleciton_1.1_A.png",
             "title": "",
@@ -74,6 +36,7 @@
         },
         "column_gwQD8G": {
           "type": "column",
+          "name": "Fireball Fabrication",
           "settings": {
             "image": "shopify://shop_images/Fireball_Fabrication_Collection_1.1.png",
             "title": "",
@@ -104,62 +67,6 @@
         "swipe_on_mobile": false,
         "padding_top": 24,
         "padding_bottom": 12
-      }
-    },
-    "collection_list_rcFNe8": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_nRFGGV": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "fireball-3d"
-          }
-        },
-        "featured_collection_Hxdhqp": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "fireball-fabrication"
-          }
-        },
-        "featured_collection_pbkTEH": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "fireball-gear-1"
-          }
-        },
-        "featured_collection_yW98Cj": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "fireball-gear-fitness"
-          }
-        },
-        "featured_collection_trTbBj": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "fireball-enterprise-merch"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_nRFGGV",
-        "featured_collection_Hxdhqp",
-        "featured_collection_pbkTEH",
-        "featured_collection_yW98Cj",
-        "featured_collection_trTbBj"
-      ],
-      "disabled": true,
-      "name": "t:sections.collection-list.presets.name",
-      "settings": {
-        "title": "Brands",
-        "heading_size": "h0",
-        "image_ratio": "square",
-        "columns_desktop": 5,
-        "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "featured_collection_zUM7N8": {
@@ -1148,9 +1055,7 @@
     }
   },
   "order": [
-    "image_banner",
     "multicolumn_eJD94Y",
-    "collection_list_rcFNe8",
     "featured_collection_zUM7N8",
     "featured_product_FJjdbp",
     "featured_collection_rrrgyx",
