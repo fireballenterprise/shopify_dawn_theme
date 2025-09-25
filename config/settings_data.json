@@ -172,6 +172,11 @@
         "type": "shopify://apps/essential-loyalty/blocks/theme-extension/bb1b2244-edbc-4be2-b271-04fde65a5c2f",
         "disabled": false,
         "settings": {}
+      },
+      "316487575649303945": {
+        "type": "shopify://apps/easify-options/blocks/app-embed-block/d2288b18-c1ba-42f5-b3b3-26c75c8820bf",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
