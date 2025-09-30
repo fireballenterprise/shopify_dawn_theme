@@ -60,7 +60,7 @@
       }
     },
     "loyalty_tiers_fireball_CFXGk4": {
-      "type": "loyalty-tiers-fireball",
+      "type": "fireball-loyalty-tiers",
       "blocks": {
         "tier_KGKPhc": {
           "type": "tier",
