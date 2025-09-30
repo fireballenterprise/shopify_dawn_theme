@@ -550,3 +550,34 @@ html.dark .header__submenu {
   border-radius: 4px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+/* 🧨 Absolute final override for header dropdowns in dark mode */
+html.dark details[open] > .header__submenu {
+  display: block !important;
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+  pointer-events: auto !important;
+  border: 1px solid #333 !important;
+  z-index: 9999 !important;
+  min-width: 220px;
+}
+
+html.dark details[open] > .header__submenu a,
+html.dark details[open] > .header__submenu li {
+  display: block !important;
+  color: #ffffff !important;
+  background-color: transparent !important;
+  padding: 0.75rem 1rem !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+html.dark details[open] > .header__submenu a:hover {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
