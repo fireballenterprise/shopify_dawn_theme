@@ -16,7 +16,7 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
 
-    <link href="{{ 'fireball-dark-mode.css' | asset_url }}" rel="stylesheet">
+    {% comment %} <link href="{{ 'fireball-dark-mode.css' | asset_url }}" rel="stylesheet"> {% endcomment %}
     {{ 'badge-new.css' | asset_url | stylesheet_tag }}
 
     {%- if settings.favicon != blank -%}
