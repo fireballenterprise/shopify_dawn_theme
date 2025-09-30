@@ -153,7 +153,7 @@
       "type": "featured-collection",
       "name": "Collection - Fitness",
       "settings": {
-        "collection": "mens-fitness",
+        "collection": "womens-fitness",
         "products_to_show": 8,
         "title": "Fitness",
         "heading_size": "h1",
