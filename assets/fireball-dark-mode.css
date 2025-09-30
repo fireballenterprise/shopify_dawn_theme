@@ -417,3 +417,30 @@ html.dark .header__submenu a:hover {
   background-color: #2a2a2a !important;
   color: #ffffff !important;
 }
+
+/* 🌐 Fix language & currency dropdowns in header dark mode */
+
+html.dark .localization-form,
+html.dark .disclosure,
+html.dark .disclosure__button,
+html.dark .disclosure__list,
+html.dark .localization-selector,
+html.dark .localization-selector select {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border-color: #333 !important;
+}
+
+/* Fix list of language/currency options */
+html.dark .disclosure__list,
+html.dark .disclosure__item {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+/* Make the actual <option> text visible */
+html.dark select option {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
