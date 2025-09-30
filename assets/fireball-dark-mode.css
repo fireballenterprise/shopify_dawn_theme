@@ -581,3 +581,49 @@ html.dark details[open] > .header__submenu a:hover {
   background-color: #2a2a2a !important;
   color: #ffffff !important;
 }
+/* ================================================= */
+/* 🔥 FINAL WORKING FIX FOR HEADER & MOBILE DROPDOWNS */
+/* ================================================= */
+
+/* 💻 Desktop dropdown: force show & style */
+html.dark details[open] > .header__submenu {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 1px solid #333 !important;
+  z-index: 10000 !important;
+  padding: 0.25rem 0 !important;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+html.dark details[open] > .header__submenu a,
+html.dark details[open] > .header__submenu li {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  display: block !important;
+  padding: 0.75rem 1rem !important;
+  font-weight: 500 !important;
+}
+
+/* 🖱️ Hover */
+html.dark .header__submenu a:hover {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+/* 📱 Mobile nav drawer */
+html.dark .menu-drawer,
+html.dark .menu-drawer__inner,
+html.dark .menu-drawer__menu,
+html.dark .menu-drawer__menu ul,
+html.dark .menu-drawer__menu li {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+html.dark .men
