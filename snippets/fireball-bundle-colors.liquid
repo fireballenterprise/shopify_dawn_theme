@@ -56,16 +56,18 @@
 </style>
 
 <script>
-/* Fireball - enforce selections + rock-solid 2/4-Pack detection (Dawn 15.4) */
+/* Fireball - PDP + Featured Product: enforce selections & rock-solid form targeting (Dawn 15.4) */
 (function () {
   const sectionId = "{{ section_id }}";
   const wrapper = document.getElementById(`FireballBundleColors-${sectionId}`);
   if (!wrapper) return;
 
-  const form = wrapper.closest('form[action*="/cart/add"]');
-  if (!form) { console.warn('Fireball Bundle: product form not found'); return; }
+  // Find the exact product form for THIS section
+  const productFormEl = document.querySelector(`product-form[data-section-id="${sectionId}"]`);
+  const form = productFormEl ? productFormEl.querySelector('form[action*="/cart/add"]') : wrapper.closest('form[action*="/cart/add"]');
+  if (!form) { console.warn('Fireball Bundle: product form not found for section', sectionId); return; }
 
-  // Let native "required" work too
+  // Let native "required" help us
   try { form.removeAttribute('novalidate'); } catch (e) {}
 
   // ---- Data helpers ----
@@ -90,7 +92,7 @@
     return 0;
   }
 
-  // Prefer variant data; fallback to DOM (selected option pills / dropdowns)
+  // Prefer variant JSON; fallback to DOM option controls (works on homepage too)
   function calcPackCount() {
     const v = currentVariant();
     if (v) {
@@ -100,15 +102,17 @@
       const fromVariant = matchPack(parts.join(' | '));
       if (fromVariant) return fromVariant;
     }
-    // DOM fallback
     let s = '';
     form.querySelectorAll('[name^="options"]').forEach(el => {
-      if (el.type === 'radio' || el.type === 'checkbox') {
-        if (el.checked) s += ' ' + el.value;
-      } else {
-        s += ' ' + (el.value || (el.options && el.options[el.selectedIndex] && el.options[el.selectedIndex].text) || '');
+      if ((el.type === 'radio' || el.type === 'checkbox') && el.checked) s += ' ' + el.value;
+      else if (el.tagName === 'SELECT') {
+        const opt = el.options[el.selectedIndex];
+        s += ' ' + (opt ? (opt.text || opt.value) : '');
       }
     });
+    // explicit fallback
+    if (form.querySelector('input[type="radio"][value*="4 Pack" i]:checked, select option:checked[value*="4 Pack" i]')) return 4;
+    if (form.querySelector('input[type="radio"][value*="2 Pack" i]:checked, select option:checked[value*="2 Pack" i]')) return 2;
     return matchPack(s);
   }
 
@@ -127,6 +131,7 @@
   function setButtonsEnabled(enabled) {
     const submitBtn = form.querySelector('[type="submit"][name="add"]');
     if (submitBtn) submitBtn.disabled = !enabled;
+
     const payContainer = form.querySelector('.shopify-payment-button');
     if (payContainer) {
       payContainer.style.pointerEvents = enabled ? '' : 'none';
@@ -157,7 +162,7 @@
     showRows(calcPackCount());
   }
 
-  // Block submits if not complete (also stop Dawn's AJAX handler)
+  // Block submits if not complete (and stop Dawn's AJAX handler)
   form.addEventListener('submit', function (ev) {
     if (!selectionsComplete()) {
       ev.preventDefault();
@@ -167,16 +172,17 @@
     }
   });
 
-  // Keep in sync with any change
-  document.addEventListener('variant:change', refresh);
+  // Keep in sync with any change/variant switch
+  document.addEventListener('variant:change', function(e){ if (form.contains(e.target)) refresh(); });
   form.addEventListener('change', refresh);
   const idInput = form.querySelector('input[name="id"]');
   if (idInput && 'MutationObserver' in window) {
     new MutationObserver(refresh).observe(idInput, { attributes: true, attributeFilter: ['value'] });
   }
 
-  // Initial paint (twice to catch late DOM updates)
+  // Initial paint (double-tick to catch lazy DOM)
   refresh();
   setTimeout(refresh, 0);
 })();
 </script>
+
