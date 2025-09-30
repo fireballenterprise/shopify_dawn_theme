@@ -444,3 +444,7 @@ html.dark select option {
   color: #ffffff !important;
 }
 
+/* Optional: Add hover styling */
+html.dark .disclosure__item:hover {
+  background-color: #2a2a2a !important;
+}
