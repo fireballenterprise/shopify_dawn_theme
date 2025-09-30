@@ -627,3 +627,76 @@ html.dark .menu-drawer__menu li {
 }
 
 html.dark .men
+/* =============================== */
+/* 🛠 FINAL PATCH FOR DAWN DROPDOWN MENUS DARK MODE */
+/* =============================== */
+
+/* DESKTOP HEADER DROPDOWNS */
+html.dark details[open] > .header__submenu {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 1px solid #333 !important;
+  z-index: 9999 !important;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Submenu links inside dropdowns */
+html.dark .header__submenu a,
+html.dark .header__submenu li {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  display: block;
+}
+
+html.dark .header__submenu a:hover {
+  background-color: #2a2a2a !important;
+}
+
+/* LANGUAGE + CURRENCY DROPDOWNS */
+html.dark .disclosure__list,
+html.dark .disclosure__item,
+html.dark .disclosure__button {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border-color: #333 !important;
+}
+
+html.dark .disclosure__list {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  z-index: 9999 !important;
+}
+
+html.dark .disclosure__item:hover {
+  background-color: #2a2a2a !important;
+}
+
+/* MOBILE NAV: force visible in drawer */
+html.dark .menu-drawer,
+html.dark .menu-drawer__inner,
+html.dark .menu-drawer__menu,
+html.dark .menu-drawer__menu ul,
+html.dark .menu-drawer__menu li {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+html.dark .menu-drawer__menu a {
+  color: #ffffff !important;
+  padding: 1rem;
+  font-weight: 500;
+  display: block;
+}
+
+html.dark .menu-drawer__menu a:hover {
+  background-color: #2a2a2a !important;
+}
