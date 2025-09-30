@@ -389,7 +389,7 @@
     {%- endif -%}
 
     {% comment %} Fireball - Dark Mode Controls {% endcomment %}
-    <script>
+    {% comment %} <script>
       const toggle = document.getElementById('dark-mode-toggle');
       const html = document.documentElement;
       const moon = document.getElementById('moon-icon');
@@ -421,7 +421,7 @@
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         setThemeMode(isDark ? 'dark' : 'light');
       });
-    </script>
+    </script> {% endcomment %}
 
     {% comment %} Fireball - Added to have Social Links Open in Other Windows {% endcomment %}
     <script>
