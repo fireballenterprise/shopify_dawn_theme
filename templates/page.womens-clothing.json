@@ -356,7 +356,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "mens-welding-clothing",
+        "collection": "womens-welding-clothing",
         "products_to_show": 8,
         "title": "Welding",
         "heading_size": "h1",
