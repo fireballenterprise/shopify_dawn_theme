@@ -448,3 +448,28 @@ html.dark select option {
 html.dark .disclosure__item:hover {
   background-color: #2a2a2a !important;
 }
+
+/* 🛠 FINAL patch: force submenu dropdowns to be visible in dark mode */
+html.dark details[open] > .header__submenu {
+  display: block !important;
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  padding: 0.5rem 0 !important;
+  border: 1px solid #333 !important;
+  z-index: 1001 !important;
+  min-width: 200px; /* force dropdown to have width */
+}
+
+/* Force visibility of menu links inside dropdown */
+html.dark .header__submenu a,
+html.dark .header__submenu li {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  display: block !important;
+  padding: 0.5rem 1rem;
+}
+
+/* Optional: hover effect */
+html.dark .header__submenu a:hover {
+  background-color: #2a2a2a !important;
+}
