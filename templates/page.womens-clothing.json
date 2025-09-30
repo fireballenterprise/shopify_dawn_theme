@@ -240,7 +240,7 @@
       "type": "featured-collection",
       "name": "Collection - Fireball Gear",
       "settings": {
-        "collection": "mens-fireball-gear-clothing",
+        "collection": "womens-fireball-gear-clothing",
         "products_to_show": 8,
         "title": "Fireball Gear",
         "heading_size": "h1",
