@@ -95,7 +95,7 @@
       "type": "featured-collection",
       "name": "Collection - New",
       "settings": {
-        "collection": "mens-new-clothing",
+        "collection": "womens-new-clothing",
         "products_to_show": 8,
         "title": "New",
         "heading_size": "h1",
