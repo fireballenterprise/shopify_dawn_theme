@@ -57,20 +57,21 @@
 
 <script>
 /* Fireball – PDP + Featured Product (Dawn 15.4)
-   - Wide detection (2/4, two/four, set/bundle/count/x2/x4)
-   - Homepage fallback: if we can SEE any 2/4-ish options in the UI but can't read the current one, default to 2 rows (and update when user switches)
+   - Wide 2/4 detection (2 Pack, 2-Pack, 2pk, Set of 2, Two, x2, etc.)
+   - Robust form targeting for homepage
+   - Blocks Add to cart + dynamic checkout until all visible color selects are chosen
 */
 (function () {
   const sectionId = "{{ section_id }}";
   const wrapper = document.getElementById(`FireballBundleColors-${sectionId}`);
   if (!wrapper) return;
 
-  // Find the form for THIS section (works on homepage)
+  // Find the real product form for THIS section (homepage + PDP)
   const pf = document.querySelector(`product-form[data-section-id="${sectionId}"]`);
   const form = pf ? pf.querySelector('form[action*="/cart/add"]') : wrapper.closest('form[action*="/cart/add"]');
   if (!form) return;
 
-  // Let native required help
+  // Let native "required" help us too
   try { form.removeAttribute('novalidate'); } catch (e) {}
 
   // ---------- Helpers ----------
@@ -87,11 +88,14 @@
     const idInput = form.querySelector('input[name="id"]');
     const vid = idInput ? idInput.value : null;
     if (!productData || !Array.isArray(productData.variants) || !vid) return null;
-    try { return productData.variants.find && productData.variants.find(v => String(v.id) === String(vid)) || null; }
-    catch(e){ return null; }
+    try {
+      return productData.variants.find && productData.variants.find(v => String(v.id) === String(vid)) || null;
+    } catch (e) {
+      return null;
+    }
   }
 
-  // Wide pack matchers (numeric + spelled)
+  // Wide matchers (numeric + spelled)
   const rx2 = /\b(2\s*[- ]?pack|2\s*pk|set\s*of\s*2|bundle\s*(of\s*)?2|x\s*2|\(2\)|\btwo\b|\b2\b|count\s*[:=]?\s*2)\b/i;
   const rx4 = /\b(4\s*[- ]?pack|4\s*pk|set\s*of\s*4|bundle\s*(of\s*)?4|x\s*4|\(4\)|\bfour\b|\b4\b|count\s*[:=]?\s*4)\b/i;
   const rxPackish = /(pack|size|count|bundle|set|quantity|qty)/i;
@@ -106,37 +110,32 @@
     return matchPackStr(parts.join(' | '));
   }
 
-  // Scrape what the UI shows (works for buttons or selects)
   function collectOptionTexts() {
     const buf = [];
-
-    // inputs named options[...]
+    // Standard option inputs
     form.querySelectorAll('[name^="options"]').forEach(el => {
       const labelEl = el.id ? form.querySelector(`label[for="${el.id}"]`) : null;
       const label = labelEl ? labelEl.textContent.trim() : '';
-      if ((el.type === 'radio' || el.type === 'checkbox')) {
+      if (el.type === 'radio' || el.type === 'checkbox') {
         if (el.checked) buf.push(label || el.value);
       } else if (el.tagName === 'SELECT') {
         const opt = el.options[el.selectedIndex];
-        if (opt) buf.push((opt.text || opt.value));
-        // include field labels that imply pack/count
+        if (opt) buf.push(opt.text || opt.value);
         if (rxPackish.test(label)) buf.push(label);
         const aria = el.getAttribute('aria-label');
         if (aria) buf.push(aria);
       }
     });
-
-    // fieldset legends / checked pills / swatches
+    // Variant pill/fieldset text
     form.querySelectorAll('fieldset, .product-form__input, .variant-picker').forEach(fs => {
       const leg = fs.querySelector('legend'); if (leg) buf.push(leg.textContent);
       fs.querySelectorAll('input[type="radio"]:checked + label, .swatch-input__label--variant').forEach(lab => buf.push(lab.textContent));
     });
-
     return buf.filter(Boolean).map(s => s.trim());
   }
 
   function visiblePackCandidates() {
-    // scan ALL option texts (selected or not) to see if 2/4 exist on the page
+    // See if any 2/4-ish option exists on the page (helps homepage edge-cases)
     const all = [];
     form.querySelectorAll('label, option').forEach(el => {
       const t = ('innerText' in el ? el.innerText : el.textContent) || '';
@@ -147,21 +146,20 @@
   }
 
   function calcPackCount() {
-    // a) best: variant JSON
+    // a) Variant JSON best-effort
     const v = currentVariant();
-    const fromVar = packFromVariant(v);
-    if (fromVar) return fromVar;
+    const a = packFromVariant(v);
+    if (a) return a;
 
-    // b) selected controls
-    const selected = collectOptionTexts().join(' | ');
-    const fromSel = matchPackStr(selected);
-    if (fromSel) return fromSel;
+    // b) Selected control texts
+    const b = matchPackStr(collectOptionTexts().join(' | '));
+    if (b) return b;
 
-    // c) explicit quick checks in selected option values
+    // c) Explicit quick checks in selected values
     if (form.querySelector('input[type="radio"][value*="4" i]:checked, select option:checked[value*="4" i]')) return 4;
     if (form.querySelector('input[type="radio"][value*="2" i]:checked, select option:checked[value*="2" i]')) return 2;
 
-    // d) HOMEPAGE FALLBACK: if we SEE any 2/4-ish options at all, default to 2 until user picks otherwise
+    // d) Homepage fallback — if we SEE 2/4 candidates at all, default to 2
     const cand = visiblePackCandidates();
     if (cand.has2 || cand.has4) return 2;
 
@@ -209,43 +207,64 @@
     setButtonsEnabled(selectionsComplete());
   }
 
-  function refresh(reason) {
-    const pack = calcPackCount();
-    showRows(pack);
-    const vid = (form.querySelector('input[name="id"]') || {}).value || '(no id)';
-    console.log('[Fireball] refresh', { page: location.pathname, sectionId, pack, vid, reason });
-    const debugTxt = `form:${!!form} • pack:${pack} • variant:${vid} • complete:${selectionsComplete()}`;
-    let hud = wrapper.querySelector('[data-fireball-hud]');
-    if (!hud) {
-      hud = document.createElement('div');
-      hud.setAttribute('data-fireball-hud','');
-      hud.style.cssText='margin-top:6px;font:12px/1.3 system-ui,Arial;padding:6px 8px;border:1px solid #ddd;border-radius:6px;background:#f7f7f7;color:#333';
-      wrapper.appendChild(hud);
-    }
-    hud.textContent = '🔥 DEBUG • ' + debugTxt;
-    // expose for quick copy if needed
-    window.FireballState = { sectionId, pack, vid, reason };
+  function refresh() {
+    showRows(calcPackCount());
   }
 
+  // Block standard submits
   form.addEventListener('submit', function (ev) {
     if (!selectionsComplete()) {
       ev.preventDefault();
       ev.stopImmediatePropagation();
       alert('Please choose a color for each jar in your bundle.');
-      console.warn('[Fireball] blocked submit – selections incomplete', { sectionId });
       return false;
     }
   });
 
-  document.addEventListener('variant:change', e => { if (form.contains(e.target)) refresh('variant:change'); });
-  form.addEventListener('change', () => refresh('form:change'));
+  // HARD BLOCK clicks on Add to cart + dynamic checkout (capture phase)
+  (function enforceButtons() {
+    function guardAction(e) {
+      if (!selectionsComplete()) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        alert('Please choose a color for each jar in your bundle.');
+        return false;
+      }
+    }
+
+    const atc = form.querySelector('[type="submit"][name="add"]');
+    if (atc) atc.addEventListener('click', guardAction, true);
+
+    function bindPaymentGuards() {
+      const payWrap = form.querySelector('.shopify-payment-button');
+      if (!payWrap) return;
+      payWrap.addEventListener('click', guardAction, true);
+
+      const unbranded = payWrap.querySelector('.shopify-payment-button__button');
+      if (unbranded) unbranded.addEventListener('click', guardAction, true);
+
+      const more = payWrap.querySelector('.shopify-payment-button__more-options');
+      if (more) more.addEventListener('click', guardAction, true);
+    }
+
+    bindPaymentGuards();
+    setTimeout(bindPaymentGuards, 400);
+    const payObs = new MutationObserver(bindPaymentGuards);
+    payObs.observe(form, { childList: true, subtree: true });
+  })();
+
+  // Keep in sync with any change/variant switch
+  document.addEventListener('variant:change', e => { if (form.contains(e.target)) refresh(); });
+  form.addEventListener('change', refresh);
 
   const idInput = form.querySelector('input[name="id"]');
   if (idInput && 'MutationObserver' in window) {
-    new MutationObserver(() => refresh('id:mutation')).observe(idInput, { attributes: true, attributeFilter: ['value'] });
+    new MutationObserver(refresh).observe(idInput, { attributes: true, attributeFilter: ['value'] });
   }
 
-  refresh('init');
-  setTimeout(() => refresh('post-mount'), 0);
+  // Initial + microtask tick
+  refresh();
+  setTimeout(refresh, 0);
 })();
 </script>
