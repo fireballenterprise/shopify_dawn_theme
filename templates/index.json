@@ -74,6 +74,7 @@
       "blocks": {
         "column_thA7cX": {
           "type": "column",
+          "name": "Men's Clothing",
           "settings": {
             "image": "shopify://shop_images/20250803_1956_Blue_Flame_Welding_remix_01k1sg1knwe2wsxv00hfqjdp85.png",
             "title": "",
@@ -84,6 +85,7 @@
         },
         "column_GJjGRM": {
           "type": "column",
+          "name": "Women's Clothing",
           "settings": {
             "image": "shopify://shop_images/20250917060954-1f0938ce-df3b-67ea-affd-2ed80416dab1.png",
             "title": "",
@@ -94,6 +96,7 @@
         },
         "column_DXpLzM": {
           "type": "column",
+          "name": "Accessories",
           "settings": {
             "image": "shopify://shop_images/airpod-case-iphone-case-drinkware-coffee-mug-use-example-images-from-library.png",
             "title": "",
