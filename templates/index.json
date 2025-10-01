@@ -91,11 +91,22 @@
             "link_label": "Women's Clothing",
             "link": "shopify://pages/womens-clothing"
           }
+        },
+        "column_DXpLzM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/airpod-case-iphone-case-drinkware-coffee-mug-use-example-images-from-library.png",
+            "title": "",
+            "text": "",
+            "link_label": "Accessories",
+            "link": "shopify://pages/accessories"
+          }
         }
       },
       "block_order": [
         "column_thA7cX",
-        "column_GJjGRM"
+        "column_GJjGRM",
+        "column_DXpLzM"
       ],
       "name": "Multicolumn - Clothing",
       "settings": {
