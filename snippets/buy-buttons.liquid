@@ -64,10 +64,11 @@
         {% if product.tags contains '7-Color-Bundles' %}
           {% render 'fireball-bundle-colors', section_id: section_id, product: product %}
         {% endif %} {% endcomment %}
-        {%- comment -%} Fireball – Bundle Color Pickers only on PDP via buy-buttons {%- endcomment -%}
-        {% if template.name == 'product' and product.tags contains '7-Color-Bundles' %}
+        {%- comment -%} Fireball – Bundle Color Pickers (inside the real product form) {%- endcomment -%}
+        {% if product.tags contains '7-Color-Bundles' %}
           {% render 'fireball-bundle-colors', section_id: section_id, product: product %}
         {% endif %}
+
 
 
         <div class="product-form__buttons">
