@@ -69,6 +69,52 @@
         "padding_bottom": 12
       }
     },
+    "multicolumn_RWaNUr": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_thA7cX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/20250803_1956_Blue_Flame_Welding_remix_01k1sg1knwe2wsxv00hfqjdp85.png",
+            "title": "",
+            "text": "",
+            "link_label": "Men's Clothing",
+            "link": "shopify://pages/mens-clothing"
+          }
+        },
+        "column_GJjGRM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/20250917060954-1f0938ce-df3b-67ea-affd-2ed80416dab1.png",
+            "title": "",
+            "text": "",
+            "link_label": "Women's Clothing",
+            "link": "shopify://pages/womens-clothing"
+          }
+        }
+      },
+      "block_order": [
+        "column_thA7cX",
+        "column_GJjGRM"
+      ],
+      "name": "Multicolumn - Clothing",
+      "settings": {
+        "title": "Shop Clothing",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection_zUM7N8": {
       "type": "featured-collection",
       "name": "Collection - New Items",
@@ -1087,80 +1133,11 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "featured_product_tnrfFK": {
-      "type": "featured-product",
-      "blocks": {
-        "text_WQfYwF": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title_TgtCNr": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price_t3mh9g": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker_MDnwCc": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_AxxWdf": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_Fzg6Vj": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "share_9hLRxh": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "text_WQfYwF",
-        "title_TgtCNr",
-        "price_t3mh9g",
-        "variant_picker_MDnwCc",
-        "quantity_selector_AxxWdf",
-        "buy_buttons_Fzg6Vj",
-        "share_9hLRxh"
-      ],
-      "name": "Product -  Fireball Gear T-shirt",
-      "settings": {
-        "product": "fireball-gear-minimalistic-unisex-triblend-t-shirt",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "small",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
     "multicolumn_eJD94Y",
+    "multicolumn_RWaNUr",
     "featured_collection_zUM7N8",
     "featured_product_FJjdbp",
     "featured_collection_rrrgyx",
@@ -1181,7 +1158,6 @@
     "featured_product_K6pjL7",
     "featured_collection_VPXNx4",
     "featured_product_tV6QpN",
-    "featured_collection_djDJti",
-    "featured_product_tnrfFK"
+    "featured_collection_djDJti"
   ]
 }
