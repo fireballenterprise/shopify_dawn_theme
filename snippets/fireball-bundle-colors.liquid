@@ -56,21 +56,34 @@
 </style>
 
 <script>
-/* Fireball - PDP + Featured Product: enforce selections & rock-solid form targeting (Dawn 15.4) */
+/* Fireball DEBUG – PDP + Featured Product (Dawn 15.4) */
 (function () {
+  const DEBUG = true;
+
   const sectionId = "{{ section_id }}";
   const wrapper = document.getElementById(`FireballBundleColors-${sectionId}`);
-  if (!wrapper) return;
+  if (!wrapper) { console.warn('[Fireball] wrapper missing', { sectionId }); return; }
 
-  // Find the exact product form for THIS section
+  // Prefer the exact product-form for THIS section; fallback to nearest form
   const productFormEl = document.querySelector(`product-form[data-section-id="${sectionId}"]`);
   const form = productFormEl ? productFormEl.querySelector('form[action*="/cart/add"]') : wrapper.closest('form[action*="/cart/add"]');
-  if (!form) { console.warn('Fireball Bundle: product form not found for section', sectionId); return; }
 
-  // Let native "required" help us
+  // --- Debug HUD ---
+  const hud = document.createElement('div');
+  hud.style.cssText = 'margin-top:6px;font:12px/1.2 system-ui,Arial;padding:6px 8px;border:1px solid #ddd;border-radius:6px;background:#f7f7f7;color:#333';
+  hud.setAttribute('data-fireball-hud','');
+  wrapper.appendChild(hud);
+  function setHUD(text){ hud.textContent = text; }
+
+  if (!form) {
+    setHUD('🔥 DEBUG: form NOT found');
+    console.error('[Fireball] product form not found', { sectionId, productFormEl, wrapper });
+    return;
+  }
+
+  // Allow native required
   try { form.removeAttribute('novalidate'); } catch (e) {}
 
-  // ---- Data helpers ----
   function getProductData() {
     try {
       const el = document.getElementById(`FireballProductData-${sectionId}`);
@@ -92,15 +105,16 @@
     return 0;
   }
 
-  // Prefer variant JSON; fallback to DOM option controls (works on homepage too)
+  // Prefer variant JSON; fallback to DOM controls
   function calcPackCount() {
     const v = currentVariant();
     if (v) {
       const parts = [];
       if (v.title) parts.push(v.title);
       if (Array.isArray(v.options)) parts.push(...v.options);
-      const fromVariant = matchPack(parts.join(' | '));
-      if (fromVariant) return fromVariant;
+      const joined = parts.join(' | ');
+      const res = matchPack(joined);
+      if (res) return res;
     }
     let s = '';
     form.querySelectorAll('[name^="options"]').forEach(el => {
@@ -110,13 +124,11 @@
         s += ' ' + (opt ? (opt.text || opt.value) : '');
       }
     });
-    // explicit fallback
     if (form.querySelector('input[type="radio"][value*="4 Pack" i]:checked, select option:checked[value*="4 Pack" i]')) return 4;
     if (form.querySelector('input[type="radio"][value*="2 Pack" i]:checked, select option:checked[value*="2 Pack" i]')) return 2;
     return matchPack(s);
   }
 
-  // ---- UI + validation ----
   function selectionsComplete() {
     if (wrapper.classList.contains('hidden')) return true;
     const rows = wrapper.querySelectorAll('.fireball-bundle-row');
@@ -131,7 +143,6 @@
   function setButtonsEnabled(enabled) {
     const submitBtn = form.querySelector('[type="submit"][name="add"]');
     if (submitBtn) submitBtn.disabled = !enabled;
-
     const payContainer = form.querySelector('.shopify-payment-button');
     if (payContainer) {
       payContainer.style.pointerEvents = enabled ? '' : 'none';
@@ -158,31 +169,49 @@
     setButtonsEnabled(selectionsComplete());
   }
 
-  function refresh() {
-    showRows(calcPackCount());
+  function refresh(reason) {
+    const idInput = form.querySelector('input[name="id"]');
+    const vid = idInput ? idInput.value : '(no id)';
+    const count = calcPackCount();
+    showRows(count);
+
+    if (DEBUG) {
+      const state = {
+        page: window.location.pathname,
+        sectionId,
+        formFound: !!form,
+        productFormElFound: !!productFormEl,
+        variantId: vid,
+        packCount: count,
+        selectionsComplete: selectionsComplete()
+      };
+      console.log('[Fireball] refresh:', reason || '(init)', state);
+      setHUD(`🔥 DEBUG • form:${!!form} • section:${sectionId} • pack:${count} • complete:${selectionsComplete()}`);
+      // expose for quick manual checks
+      window.FireballState = state;
+    }
   }
 
-  // Block submits if not complete (and stop Dawn's AJAX handler)
+  // Block submits if not complete (also stop Dawn's AJAX handler)
   form.addEventListener('submit', function (ev) {
     if (!selectionsComplete()) {
       ev.preventDefault();
       ev.stopImmediatePropagation();
       alert('Please choose a color for each jar in your bundle.');
+      if (DEBUG) console.warn('[Fireball] blocked submit – selections incomplete', { sectionId });
       return false;
     }
   });
 
-  // Keep in sync with any change/variant switch
-  document.addEventListener('variant:change', function(e){ if (form.contains(e.target)) refresh(); });
-  form.addEventListener('change', refresh);
+  document.addEventListener('variant:change', e => { if (form.contains(e.target)) refresh('variant:change'); });
+  form.addEventListener('change', () => refresh('form:change'));
+
   const idInput = form.querySelector('input[name="id"]');
   if (idInput && 'MutationObserver' in window) {
-    new MutationObserver(refresh).observe(idInput, { attributes: true, attributeFilter: ['value'] });
+    new MutationObserver(() => refresh('id:mutation')).observe(idInput, { attributes: true, attributeFilter: ['value'] });
   }
 
-  // Initial paint (double-tick to catch lazy DOM)
-  refresh();
-  setTimeout(refresh, 0);
+  refresh('init');
+  setTimeout(() => refresh('post-mount'), 0);
 })();
 </script>
-
