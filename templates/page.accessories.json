@@ -67,7 +67,7 @@
       "name": "Collection - Drinkware",
       "settings": {
         "collection": "drinkware",
-        "products_to_show": 8,
+        "products_to_show": 12,
         "title": "Drinkware",
         "heading_size": "h1",
         "description": "",
@@ -96,7 +96,7 @@
       "name": "Collection - Tech",
       "settings": {
         "collection": "phone-accessories",
-        "products_to_show": 8,
+        "products_to_show": 12,
         "title": "Tech",
         "heading_size": "h1",
         "description": "",
