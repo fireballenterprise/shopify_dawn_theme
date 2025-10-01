@@ -399,12 +399,12 @@
                     block: block,
                     product_form_id: product_form_id
                   %}
-                {%- comment -%} Fireball – Bundle picker on Featured Product (home only) {%- endcomment -%}
+                {% comment %} {%- comment -%} Fireball – Bundle picker on Featured Product (home only) {%- endcomment -%}
                 {% unless template.name == 'product' %}
                   {% if product.tags contains '7-Color-Bundles' %}
                     {% render 'fireball-bundle-colors', section_id: section.id, product: product %}
                   {% endif %}
-                {% endunless %}
+                {% endunless %} {% endcomment %}
   
                 {%- when 'buy_buttons' -%}
                   {%- render 'buy-buttons',
