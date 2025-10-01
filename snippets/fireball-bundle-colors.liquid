@@ -57,9 +57,11 @@
 
 <script>
 /* Fireball – PDP + Featured Product (Dawn 15.4)
-   - Wide 2/4 detection (2 Pack, 2-Pack, 2pk, Set of 2, Two, x2, etc.)
-   - Robust form targeting for homepage
-   - Blocks Add to cart + dynamic checkout until all visible color selects are chosen
+   Explicit-only detection:
+   - Show picker ONLY when we can clearly read 2-pack or 4-pack.
+   - No homepage defaulting.
+   - Prefers variant JSON, then the fieldset whose legend/label implies pack/count, then selected control text.
+   - Blocks Add to cart + dynamic checkout until all visible selects are chosen.
 */
 (function () {
   const sectionId = "{{ section_id }}";
@@ -71,7 +73,6 @@
   const form = pf ? pf.querySelector('form[action*="/cart/add"]') : wrapper.closest('form[action*="/cart/add"]');
   if (!form) return;
 
-  // Let native "required" help us too
   try { form.removeAttribute('novalidate'); } catch (e) {}
 
   // ---------- Helpers ----------
@@ -90,79 +91,113 @@
     if (!productData || !Array.isArray(productData.variants) || !vid) return null;
     try {
       return productData.variants.find && productData.variants.find(v => String(v.id) === String(vid)) || null;
-    } catch (e) {
-      return null;
-    }
+    } catch { return null; }
   }
 
-  // Wide matchers (numeric + spelled)
-  const rx2 = /\b(2\s*[- ]?pack|2\s*pk|set\s*of\s*2|bundle\s*(of\s*)?2|x\s*2|\(2\)|\btwo\b|\b2\b|count\s*[:=]?\s*2)\b/i;
-  const rx4 = /\b(4\s*[- ]?pack|4\s*pk|set\s*of\s*4|bundle\s*(of\s*)?4|x\s*4|\(4\)|\bfour\b|\b4\b|count\s*[:=]?\s*4)\b/i;
-  const rxPackish = /(pack|size|count|bundle|set|quantity|qty)/i;
+  // Strict, explicit matching (don’t just look for any “2”/“4” on the page)
+  const rxPackishLabel = /(pack|size|count|bundle|set|quantity|qty)/i;
+  const rxTwo  = /\b(two|2)\b/i;
+  const rxFour = /\b(four|4)\b/i;
+  const rx2Strict = /\b(2\s*[- ]?pack|2\s*pk|set\s*of\s*2|bundle\s*(of\s*)?2|x\s*2|\(2\)|\btwo\b)\b/i;
+  const rx4Strict = /\b(4\s*[- ]?pack|4\s*pk|set\s*of\s*4|bundle\s*(of\s*)?4|x\s*4|\(4\)|\bfour\b)\b/i;
 
-  function matchPackStr(s){ if (!s) return 0; if (rx4.test(s)) return 4; if (rx2.test(s)) return 2; return 0; }
+  function matchCount(text) {
+    if (!text) return 0;
+    if (rx4Strict.test(text)) return 4;
+    if (rx2Strict.test(text)) return 2;
+    return 0;
+  }
 
-  function packFromVariant(v){
+  function packFromVariant(v) {
     if (!v) return 0;
     const parts = [];
     if (v.title) parts.push(v.title);
     if (Array.isArray(v.options)) parts.push(...v.options);
-    return matchPackStr(parts.join(' | '));
+    return matchCount(parts.join(' | '));
   }
 
-  function collectOptionTexts() {
-    const buf = [];
-    // Standard option inputs
-    form.querySelectorAll('[name^="options"]').forEach(el => {
+  // Find the fieldset / select that looks like the “pack/count” option,
+  // then read ONLY the selected value/label from that control.
+  function packFromPackField() {
+    // (A) Fieldsets with a legend like "Pack"/"Count"/"Set"…
+    const fs = [...form.querySelectorAll('fieldset, .product-form__input, .variant-picker')];
+    for (const field of fs) {
+      const legend = (field.querySelector('legend')?.innerText || '').trim();
+      if (!legend || !rxPackishLabel.test(legend)) continue;
+
+      // radio pills
+      const checkedLab = field.querySelector('input[type="radio"]:checked + label');
+      if (checkedLab) {
+        const t = checkedLab.innerText.trim();
+        const m = matchCount(t);
+        if (m) return m;
+      }
+      // selects inside this field
+      const sel = field.querySelector('select');
+      if (sel && sel.selectedIndex >= 0) {
+        const opt = sel.options[sel.selectedIndex];
+        const t = (opt?.text || opt?.value || '').trim();
+        const m = matchCount(t);
+        if (m) return m;
+      }
+    }
+
+    // (B) Labeled inputs/selects named options[...]
+    const controls = [...form.querySelectorAll('[name^="options"]')];
+    for (const el of controls) {
       const labelEl = el.id ? form.querySelector(`label[for="${el.id}"]`) : null;
-      const label = labelEl ? labelEl.textContent.trim() : '';
-      if (el.type === 'radio' || el.type === 'checkbox') {
-        if (el.checked) buf.push(label || el.value);
+      const label = (labelEl?.innerText || el.getAttribute('aria-label') || '').trim();
+      if (!rxPackishLabel.test(label)) continue;
+
+      if ((el.type === 'radio' || el.type === 'checkbox') && el.checked) {
+        const t = (label || el.value || '').trim();
+        const m = matchCount(t);
+        if (m) return m;
       } else if (el.tagName === 'SELECT') {
         const opt = el.options[el.selectedIndex];
-        if (opt) buf.push(opt.text || opt.value);
-        if (rxPackish.test(label)) buf.push(label);
-        const aria = el.getAttribute('aria-label');
-        if (aria) buf.push(aria);
+        const t = (opt?.text || opt?.value || '').trim();
+        const m = matchCount(t);
+        if (m) return m;
       }
-    });
-    // Variant pill/fieldset text
-    form.querySelectorAll('fieldset, .product-form__input, .variant-picker').forEach(fs => {
-      const leg = fs.querySelector('legend'); if (leg) buf.push(leg.textContent);
-      fs.querySelectorAll('input[type="radio"]:checked + label, .swatch-input__label--variant').forEach(lab => buf.push(lab.textContent));
-    });
-    return buf.filter(Boolean).map(s => s.trim());
+    }
+
+    return 0;
   }
 
-  function visiblePackCandidates() {
-    // See if any 2/4-ish option exists on the page (helps homepage edge-cases)
-    const all = [];
-    form.querySelectorAll('label, option').forEach(el => {
-      const t = ('innerText' in el ? el.innerText : el.textContent) || '';
-      if (t) all.push(t);
+  // As a last resort, read the *selected* option texts (not the whole page)
+  function packFromSelectedOnly() {
+    const selTexts = [];
+
+    // radios that are checked (button picker)
+    form.querySelectorAll('input[type="radio"]:checked + label').forEach(l => selTexts.push(l.innerText.trim()));
+
+    // selected <option> in dropdowns
+    form.querySelectorAll('select').forEach(sel => {
+      const opt = sel.options[sel.selectedIndex];
+      if (opt) selTexts.push((opt.text || opt.value || '').trim());
     });
-    const joined = all.join(' | ');
-    return { has2: rx2.test(joined), has4: rx4.test(joined) };
+
+    // Decide with strict 4 > 2 preference if both appear
+    const joined = selTexts.join(' | ');
+    if (rx4Strict.test(joined)) return 4;
+    if (rx2Strict.test(joined)) return 2;
+    return 0;
   }
 
   function calcPackCount() {
-    // a) Variant JSON best-effort
-    const v = currentVariant();
-    const a = packFromVariant(v);
-    if (a) return a;
+    // 1) Variant JSON (best when available)
+    const fromVariant = packFromVariant(currentVariant());
+    if (fromVariant) return fromVariant;
 
-    // b) Selected control texts
-    const b = matchPackStr(collectOptionTexts().join(' | '));
-    if (b) return b;
+    // 2) The pack/count field (fieldset or labeled select)
+    const fromField = packFromPackField();
+    if (fromField) return fromField;
 
-    // c) Explicit quick checks in selected values
-    if (form.querySelector('input[type="radio"][value*="4" i]:checked, select option:checked[value*="4" i]')) return 4;
-    if (form.querySelector('input[type="radio"][value*="2" i]:checked, select option:checked[value*="2" i]')) return 2;
+    // 3) Only the currently selected texts
+    const fromSelected = packFromSelectedOnly();
+    if (fromSelected) return fromSelected;
 
-    // d) Homepage fallback — if we SEE 2/4 candidates at all, default to 2
-    const cand = visiblePackCandidates();
-    if (cand.has2 || cand.has4) return 2;
-
+    // Explicit-only: if we still don't know, return 0 (hide picker)
     return 0;
   }
 
@@ -208,7 +243,8 @@
   }
 
   function refresh() {
-    showRows(calcPackCount());
+    const pack = calcPackCount();   // now returns only 0, 2, or 4
+    showRows(pack);
   }
 
   // Block standard submits
@@ -232,7 +268,6 @@
         return false;
       }
     }
-
     const atc = form.querySelector('[type="submit"][name="add"]');
     if (atc) atc.addEventListener('click', guardAction, true);
 
@@ -247,7 +282,6 @@
       const more = payWrap.querySelector('.shopify-payment-button__more-options');
       if (more) more.addEventListener('click', guardAction, true);
     }
-
     bindPaymentGuards();
     setTimeout(bindPaymentGuards, 400);
     const payObs = new MutationObserver(bindPaymentGuards);
@@ -257,7 +291,6 @@
   // Keep in sync with any change/variant switch
   document.addEventListener('variant:change', e => { if (form.contains(e.target)) refresh(); });
   form.addEventListener('change', refresh);
-
   const idInput = form.querySelector('input[name="id"]');
   if (idInput && 'MutationObserver' in window) {
     new MutationObserver(refresh).observe(idInput, { attributes: true, attributeFilter: ['value'] });
