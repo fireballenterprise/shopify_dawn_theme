@@ -326,6 +326,7 @@
     },
     "featured_collection_DhJDTi": {
       "type": "featured-collection",
+      "disabled": true,
       "name": "Collection - Womens Clothing",
       "settings": {
         "collection": "womens-clothing",
