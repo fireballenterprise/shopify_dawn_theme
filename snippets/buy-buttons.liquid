@@ -60,10 +60,15 @@
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
 
-        {%- comment -%}Fireball - Bundle Color Pickers only for 7-Color-Bundles{%- endcomment -%}
+        {% comment %} {%- comment -%}Fireball - Bundle Color Pickers only for 7-Color-Bundles{%- endcomment -%}
         {% if product.tags contains '7-Color-Bundles' %}
           {% render 'fireball-bundle-colors', section_id: section_id, product: product %}
+        {% endif %} {% endcomment %}
+        {%- comment -%} Fireball – Bundle Color Pickers only on PDP via buy-buttons {%- endcomment -%}
+        {% if template.name == 'product' and product.tags contains '7-Color-Bundles' %}
+          {% render 'fireball-bundle-colors', section_id: section_id, product: product %}
         {% endif %}
+
 
         <div class="product-form__buttons">
           {%- liquid
