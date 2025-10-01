@@ -51,6 +51,7 @@
         "column_FhJkgM",
         "column_gwQD8G"
       ],
+      "disabled": true,
       "name": "Multicolumn - Brands",
       "settings": {
         "title": "Shop Brands",
@@ -74,6 +75,66 @@
       "blocks": {
         "column_thA7cX": {
           "type": "column",
+          "name": "Fireball 3D",
+          "settings": {
+            "image": "shopify://shop_images/F3D_Collection_1.1.png",
+            "title": "",
+            "text": "",
+            "link_label": "Fireball 3D",
+            "link": "shopify://pages/fireball3d"
+          }
+        },
+        "column_GJjGRM": {
+          "type": "column",
+          "name": "Fireball Gear",
+          "settings": {
+            "image": "shopify://shop_images/Fireball_Gear_Colleciton_1.1_A.png",
+            "title": "",
+            "text": "",
+            "link_label": "Fireball Gear",
+            "link": "shopify://pages/fireballgear"
+          }
+        },
+        "column_DXpLzM": {
+          "type": "column",
+          "name": "Fireball Fabrication",
+          "settings": {
+            "image": "shopify://shop_images/Fireball_Fabrication_Collection_1.1.png",
+            "title": "",
+            "text": "",
+            "link_label": "Fireball Fabrication",
+            "link": "shopify://pages/fireballfabrication"
+          }
+        }
+      },
+      "block_order": [
+        "column_thA7cX",
+        "column_GJjGRM",
+        "column_DXpLzM"
+      ],
+      "name": "Multicolumn - Shop Brands",
+      "settings": {
+        "title": "Shop Clothing & Accessories",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 12
+      }
+    },
+    "multicolumn_mPp9hy": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_iPbzMb": {
+          "type": "column",
           "name": "Men's Clothing",
           "settings": {
             "image": "shopify://shop_images/Fireball_Fabrication_-_Welding_Torch_Craft_-_B.png",
@@ -83,7 +144,7 @@
             "link": "shopify://pages/mens-clothing"
           }
         },
-        "column_GJjGRM": {
+        "column_84CEa8": {
           "type": "column",
           "name": "Women's Clothing",
           "settings": {
@@ -94,7 +155,7 @@
             "link": "shopify://pages/womens-clothing"
           }
         },
-        "column_DXpLzM": {
+        "column_njyqYx": {
           "type": "column",
           "name": "Accessories",
           "settings": {
@@ -107,11 +168,11 @@
         }
       },
       "block_order": [
-        "column_thA7cX",
-        "column_GJjGRM",
-        "column_DXpLzM"
+        "column_iPbzMb",
+        "column_84CEa8",
+        "column_njyqYx"
       ],
-      "name": "Multicolumn - Clothing",
+      "name": "Multicolumn - Shop Clothing",
       "settings": {
         "title": "Shop Clothing & Accessories",
         "heading_size": "h1",
@@ -1153,6 +1214,7 @@
   "order": [
     "multicolumn_eJD94Y",
     "multicolumn_RWaNUr",
+    "multicolumn_mPp9hy",
     "featured_collection_zUM7N8",
     "featured_product_FJjdbp",
     "featured_collection_rrrgyx",
