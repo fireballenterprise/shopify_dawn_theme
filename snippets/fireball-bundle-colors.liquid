@@ -57,10 +57,13 @@
 
 <script>
 /* Fireball – PDP + Featured Product (Dawn 15.4.x)
-   - Explicit detection only (no homepage defaulting).
-   - Primary signal: currently selected option values (radios/selects).
-   - Secondary: variant JSON for the current variant.
-   - Blocks Add to cart + dynamic checkout until all visible color selects are chosen.
+   Deterministic detection:
+   - Identify the "pack/count" option by label (e.g., Pack, Pack Size, Count, Bundle, Set, Qty, Quantity).
+   - Read ONLY the currently selected value of that option.
+   - Parse it for 2 or 4 (supports "2 Pack", "Set of 2", "Two", "x2", etc.)
+   - Show 0/2/4 rows accordingly.
+   - Hard-block Add to cart + dynamic checkout until all visible selects are chosen.
+   - Built-in HUD + console logs for quick debugging.
 */
 (function () {
   const sectionId = "{{ section_id }}";
@@ -72,82 +75,99 @@
   const form = pf ? pf.querySelector('form[action*="/cart/add"]') : wrapper.closest('form[action*="/cart/add"]');
   if (!form) return;
 
-  // Let native required help us too
+  // Enable native required validation
   try { form.removeAttribute('novalidate'); } catch (e) {}
 
-  // ---------- Helpers ----------
-  function getProductData() {
-    try {
-      const el = document.getElementById(`FireballProductData-${sectionId}`);
-      const data = el ? JSON.parse(el.textContent) : null;
-      return (data && typeof data === 'object') ? data : null;
-    } catch (e) { return null; }
-  }
-  const productData = getProductData();
+  // ----- Configure the labels that indicate the pack/count option -----
+  const PACK_OPTION_LABELS = ['pack', 'pack size', 'count', 'bundle', 'set', 'qty', 'quantity'];
 
-  function currentVariant() {
-    const idInput = form.querySelector('input[name="id"]');
-    const vid = idInput ? idInput.value : null;
-    if (!productData || !Array.isArray(productData.variants) || !vid) return null;
-    try {
-      return productData.variants.find && productData.variants.find(v => String(v.id) === String(vid)) || null;
-    } catch { return null; }
-  }
+  // ----- Matchers -----
+  const RX2 = /\b(2\s*[- ]?pack|2\s*pk|set\s*of\s*2|bundle\s*(of\s*)?2|x\s*2|\(2\)|\btwo\b|\b2\b)\b/i;
+  const RX4 = /\b(4\s*[- ]?pack|4\s*pk|set\s*of\s*4|bundle\s*(of\s*)?4|x\s*4|\(4\)|\bfour\b|\b4\b)\b/i;
 
-  // Matchers (lenient but explicit to pack wording)
-  const RX2 = /\b(2\s*[- ]?pack|2\s*pk|set\s*of\s*2|bundle\s*(of\s*)?2|x\s*2|\(2\)|\btwo\b)\b/i;
-  const RX4 = /\b(4\s*[- ]?pack|4\s*pk|set\s*of\s*4|bundle\s*(of\s*)?4|x\s*4|\(4\)|\bfour\b)\b/i;
-
-  function matchPack(text) {
-    if (!text) return 0;
-    if (RX4.test(text)) return 4;
-    if (RX2.test(text)) return 2;
+  function parsePack(val) {
+    if (!val) return 0;
+    if (RX4.test(val)) return 4;
+    if (RX2.test(val)) return 2;
     return 0;
   }
 
-  // Primary: read the CURRENTLY SELECTED control values (works for button & dropdown pickers)
-  function packFromSelectedControls() {
-    const bits = [];
+  // ----- Find the *pack* control in the DOM (fieldset radio group or select) -----
+  function getPackControl() {
+    // 1) Fieldsets with a legend
+    const fields = form.querySelectorAll('fieldset, .product-form__input, .variant-picker');
+    for (const fs of fields) {
+      const legend = (fs.querySelector('legend')?.innerText || '').trim().toLowerCase();
+      if (legend && PACK_OPTION_LABELS.some(lbl => legend.includes(lbl))) {
+        // Prefer a checked radio in this fieldset
+        const checked = fs.querySelector('input[type="radio"]:checked');
+        if (checked) return { type: 'radio', field: fs, el: checked };
+        // Or a select in this field
+        const sel = fs.querySelector('select');
+        if (sel) return { type: 'select', field: fs, el: sel };
+      }
+    }
 
-    // Checked radios (button style)
-    form.querySelectorAll('input[type="radio"][name^="options"]:checked').forEach(inp => {
-      // Prefer the radio's value attribute; fallback to adjacent label text
-      const v = inp.value || '';
-      const lab = inp.id ? (form.querySelector(`label[for="${inp.id}"]`)?.innerText || '') : '';
-      bits.push(v, lab);
-    });
+    // 2) Labeled inputs/selects by their <label for> / aria-label
+    const controls = form.querySelectorAll('[name^="options"]');
+    for (const el of controls) {
+      const labelEl = el.id ? form.querySelector(`label[for="${el.id}"]`) : null;
+      const labelText = (labelEl?.innerText || el.getAttribute('aria-label') || '').trim().toLowerCase();
+      if (labelText && PACK_OPTION_LABELS.some(lbl => labelText.includes(lbl))) {
+        if ((el.type === 'radio' || el.type === 'checkbox') && el.checked) {
+          return { type: 'radio', field: null, el };
+        } else if (el.tagName === 'SELECT') {
+          return { type: 'select', field: null, el };
+        }
+      }
+    }
 
-    // Selected <option> texts
-    form.querySelectorAll('select[name^="options"]').forEach(sel => {
+    // 3) Fallback: if there is only ONE option group and its values look like 2/4-pack, use that
+    const groups = Array.from(new Set(Array.from(controls).map(el => el.name)));
+    if (groups.length === 1) {
+      // Try to read its selected value
+      const radios = form.querySelectorAll('input[type="radio"][name="' + groups[0] + '"]');
+      if (radios.length) {
+        const checked = form.querySelector('input[type="radio"][name="' + groups[0] + '"]:checked');
+        if (checked) return { type: 'radio', field: null, el: checked };
+      }
+      const sel = form.querySelector('select[name="' + groups[0] + '"]');
+      if (sel) return { type: 'select', field: null, el: sel };
+    }
+
+    return null;
+  }
+
+  function readSelectedText(ctrl) {
+    if (!ctrl) return '';
+    if (ctrl.type === 'radio') {
+      const input = ctrl.el;
+      const lab = input.id ? form.querySelector(`label[for="${input.id}"]`) : null;
+      return (input.value || lab?.innerText || '').trim();
+    }
+    if (ctrl.type === 'select') {
+      const sel = ctrl.el;
       const opt = sel.options[sel.selectedIndex];
-      if (opt) bits.push(opt.text || opt.value || '');
+      return ((opt?.text || opt?.value) || '').trim();
+    }
+    return '';
+  }
+
+  // ----- Compute pack count deterministically -----
+  function calcPackCount() {
+    const ctrl = getPackControl();
+    const selectedText = readSelectedText(ctrl);
+    const count = parsePack(selectedText);
+
+    // Debug logs (helpful for homepage differences)
+    console.log('[Fireball] pack control:', {
+      sectionId, found: !!ctrl, type: ctrl?.type || null, selectedText, count
     });
 
-    return matchPack(bits.join(' | '));
+    return count; // 0, 2, or 4
   }
 
-  // Secondary: from current variant title/options (if JSON present)
-  function packFromVariantJSON() {
-    const v = currentVariant();
-    if (!v) return 0;
-    const parts = [];
-    if (v.title) parts.push(v.title);
-    if (Array.isArray(v.options)) parts.push(...v.options);
-    return matchPack(parts.join(' | '));
-  }
-
-  function calcPackCount() {
-    // 1) Selected controls
-    const a = packFromSelectedControls();
-    if (a) return a;
-    // 2) Variant JSON
-    const b = packFromVariantJSON();
-    if (b) return b;
-    // No confident signal -> hide
-    return 0;
-  }
-
-  // ---------- UI & enforcement ----------
+  // ----- UI + enforcement -----
   function selectionsComplete() {
     if (wrapper.classList.contains('hidden')) return true;
     const rows = wrapper.querySelectorAll('.fireball-bundle-row');
@@ -186,13 +206,23 @@
     });
     wrapper.classList.toggle('hidden', count === 0);
     setButtonsEnabled(selectionsComplete());
+
+    // Mini HUD for quick visual debug
+    let hud = wrapper.querySelector('[data-fireball-hud]');
+    if (!hud) {
+      hud = document.createElement('div');
+      hud.setAttribute('data-fireball-hud','');
+      hud.style.cssText='margin-top:6px;font:12px/1.35 system-ui,Arial;padding:6px 8px;border:1px solid #ddd;border-radius:6px;background:#f7f7f7;color:#333';
+      wrapper.appendChild(hud);
+    }
+    hud.textContent = `🧪 Pack: ${count} • Complete: ${selectionsComplete()}`;
   }
 
   function refresh() {
-    showRows(calcPackCount()); // returns 0, 2, or 4
+    showRows(calcPackCount());
   }
 
-  // Block normal submit
+  // Block standard submits
   form.addEventListener('submit', function (ev) {
     if (!selectionsComplete()) {
       ev.preventDefault();
@@ -202,45 +232,41 @@
     }
   });
 
-  // HARD BLOCK clicks on Add to cart + dynamic checkout (capture phase)
+  // HARD BLOCK Add to cart + dynamic checkout (capture phase)
   (function enforceButtons() {
-    function guardAction(e) {
+    function guard(e) {
       if (!selectionsComplete()) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
+        e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
         alert('Please choose a color for each jar in your bundle.');
         return false;
       }
     }
     const atc = form.querySelector('[type="submit"][name="add"]');
-    if (atc) atc.addEventListener('click', guardAction, true);
+    if (atc) atc.addEventListener('click', guard, true);
 
     function bindPaymentGuards() {
       const payWrap = form.querySelector('.shopify-payment-button');
       if (!payWrap) return;
-      payWrap.addEventListener('click', guardAction, true);
+      payWrap.addEventListener('click', guard, true);
       const unbranded = payWrap.querySelector('.shopify-payment-button__button');
-      if (unbranded) unbranded.addEventListener('click', guardAction, true);
+      if (unbranded) unbranded.addEventListener('click', guard, true);
       const more = payWrap.querySelector('.shopify-payment-button__more-options');
-      if (more) more.addEventListener('click', guardAction, true);
+      if (more) more.addEventListener('click', guard, true);
     }
     bindPaymentGuards();
     setTimeout(bindPaymentGuards, 400);
-    const payObs = new MutationObserver(bindPaymentGuards);
-    payObs.observe(form, { childList: true, subtree: true });
+    new MutationObserver(bindPaymentGuards).observe(form, { childList: true, subtree: true });
   })();
 
-  // Keep in sync when variant/option changes
+  // Keep in sync with any option or variant change
   document.addEventListener('variant:change', e => { if (form.contains(e.target)) refresh(); });
   form.addEventListener('change', refresh);
-
   const idInput = form.querySelector('input[name="id"]');
   if (idInput && 'MutationObserver' in window) {
     new MutationObserver(refresh).observe(idInput, { attributes: true, attributeFilter: ['value'] });
   }
 
-  // Initial + microtask tick
+  // Initial paint
   refresh();
   setTimeout(refresh, 0);
 })();
