@@ -15,7 +15,7 @@
         "vendor": {
           "type": "text",
           "settings": {
-            "text": "{{ product.vendor }}",
+            "text": "Fireball Gear",
             "text_style": "uppercase"
           }
         },
