@@ -177,6 +177,11 @@
         "type": "shopify://apps/vo-product-options/blocks/embed-block/430cbd7b-bd20-4c16-ba41-db6f4c645164",
         "disabled": false,
         "settings": {}
+      },
+      "11157650454685201569": {
+        "type": "shopify://apps/robosize-ai-size-recommender/blocks/robosize/b83190b7-3280-45b6-a840-b8365b163ddf",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
