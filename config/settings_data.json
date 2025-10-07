@@ -178,9 +178,9 @@
         "disabled": false,
         "settings": {}
       },
-      "11157650454685201569": {
-        "type": "shopify://apps/robosize-ai-size-recommender/blocks/robosize/b83190b7-3280-45b6-a840-b8365b163ddf",
-        "disabled": true,
+      "8922932426027934017": {
+        "type": "shopify://apps/rt-size-chart-size-guide/blocks/app-embed/13a9207b-9080-4ce4-b513-4b68a085eadb",
+        "disabled": false,
         "settings": {}
       }
     },
