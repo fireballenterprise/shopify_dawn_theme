@@ -180,7 +180,7 @@
       },
       "11157650454685201569": {
         "type": "shopify://apps/robosize-ai-size-recommender/blocks/robosize/b83190b7-3280-45b6-a840-b8365b163ddf",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
