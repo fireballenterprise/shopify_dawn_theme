@@ -181,7 +181,7 @@
       "type": "featured-collection",
       "name": "Featured collection - Lightbox",
       "settings": {
-        "collection": "fireball-3d-lightboxes",
+        "collection": "fireball-3d-led-signs",
         "products_to_show": 4,
         "title": "Signs",
         "heading_size": "h1",

@@ -888,7 +888,7 @@
       "type": "featured-collection",
       "name": "Collection - LED Signs",
       "settings": {
-        "collection": "fireball-3d-lightboxes",
+        "collection": "fireball-3d-led-signs",
         "products_to_show": 8,
         "title": "LED Signs",
         "heading_size": "h1",
