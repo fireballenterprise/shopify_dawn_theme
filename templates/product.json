@@ -14,12 +14,14 @@
       "blocks": {
         "custom_liquid_N9AHyw": {
           "type": "custom_liquid",
+          "name": "Custom Vendor",
           "settings": {
             "custom_liquid": "{% if product.vendor == \"Printify\" %}\n  {{ \"Fireball Gear\" | upcase }}\n{% else %}\n  {{ product.vendor | upcase }}\n{% endif %}"
           }
         },
         "vendor": {
           "type": "text",
+          "name": "Vendor from DB",
           "disabled": true,
           "settings": {
             "text": "{{ product.vendor }}",
