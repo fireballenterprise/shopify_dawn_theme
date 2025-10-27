@@ -12,8 +12,15 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "custom_liquid_N9AHyw": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.vendor == \"Printify\" %}\n  {{ \"Fireball Gear\" | upcase }}\n{% else %}\n  {{ product.vendor | upcase }}\n{% endif %}"
+          }
+        },
         "vendor": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "{{ product.vendor }}",
             "text_style": "uppercase"
@@ -68,6 +75,7 @@
         }
       },
       "block_order": [
+        "custom_liquid_N9AHyw",
         "vendor",
         "custom_liquid_8dKkVY",
         "title",
