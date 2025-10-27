@@ -19,6 +19,12 @@
             "text_style": "uppercase"
           }
         },
+        "custom_liquid_8dKkVY": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.metafields.custom.series %}\n  <p class=\"caption-with-letter-spacing\">\n    {{ product.metafields.custom.series }}\n  </p>\n{% endif %}"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -62,6 +68,7 @@
       },
       "block_order": [
         "vendor",
+        "custom_liquid_8dKkVY",
         "title",
         "price",
         "variant_picker",
