@@ -21,6 +21,7 @@
         },
         "custom_liquid_8dKkVY": {
           "type": "custom_liquid",
+          "name": "Series Metafield",
           "settings": {
             "custom_liquid": "{% if product.metafields.custom.series %}\n  <p class=\"caption-with-letter-spacing\">\n    {{ product.metafields.custom.series }}\n  </p>\n{% endif %}"
           }
