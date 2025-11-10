@@ -35,24 +35,10 @@
             "link": ""
           }
         },
-        "announcement_dRrUXb": {
-          "type": "announcement",
-          "settings": {
-            "text": "✨ New Designs Dropping Weekly | Don’t Miss Out",
-            "link": ""
-          }
-        },
-        "announcement_7GnRgT": {
-          "type": "announcement",
-          "settings": {
-            "text": "💥 Small-Batch Manufacturing | No Mass-Produced Junk",
-            "link": ""
-          }
-        },
         "announcement_WzBfMg": {
           "type": "announcement",
           "settings": {
-            "text": "🛠 Designed. Built. Delivered. | Fireball Quality Every Time",
+            "text": "🔥 Black Friday Sale! Use code BLKFRI2025!25 for 25% OFF Site-Wide | Nov 9 – Nov 30",
             "link": ""
           }
         }
@@ -61,8 +47,6 @@
         "announcement_ALTUL4",
         "announcement-bar-0",
         "announcement_6T6mNJ",
-        "announcement_dRrUXb",
-        "announcement_7GnRgT",
         "announcement_WzBfMg"
       ],
       "custom_css": [],
