@@ -21,13 +21,6 @@
             "link": ""
           }
         },
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "🔥 Custom Made in the USA | Small-Batch, High Quality",
-            "link": ""
-          }
-        },
         "announcement_6T6mNJ": {
           "type": "announcement",
           "settings": {
@@ -41,13 +34,20 @@
             "text": "🔥 All Month Dec Sale! 15% OFF Site-Wide | Automatic at Check-Out",
             "link": ""
           }
+        },
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "🔥 Custom Made in the USA | Small-Batch, High Quality",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "announcement_ALTUL4",
-        "announcement-bar-0",
         "announcement_6T6mNJ",
-        "announcement_WzBfMg"
+        "announcement_WzBfMg",
+        "announcement-bar-0"
       ],
       "custom_css": [],
       "settings": {
