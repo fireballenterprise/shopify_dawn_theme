@@ -1,0 +1,10 @@
+---
+# shopify_dawn_theme Properties
+# Central configuration for all scripts and automation
+
+repo:
+  local: "/Users/levon/Development/fireballenterprise/shopify_dawn_theme"
+  remote: "github.com/fireballenterprise/shopify_dawn_theme"
+
+shopify:
+  store: "fireballenterprise.myshopify.com"
