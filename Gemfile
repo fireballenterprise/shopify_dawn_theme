@@ -13,6 +13,7 @@ source 'https://rubygems.org/' do
   gem 'rake'
   gem 'rubocop'
   gem 'rubocop-rake', require: false
+  gem 'ruby-lsp', require: false
   gem 'theme-check'
   gem 'tty-prompt'
 end

@@ -46,9 +46,9 @@ install_libraries() {
   echo -e
   echo "INFO: Installing Libraries (Gemfile)"
   bundle config set --local path '.vendor/bundle'   # stores gems in ./vendor
-  bundle config set --local binstubs .bin           # set binstubs directory
+  bundle config set --local bin '.bin'              # set binstubs directory
   bundle install                                    # install gems
-  bundle binstubs --all --path=.bin                 # generate binstubs for all gems
+  bundle binstubs --all                             # generate binstubs for all gems
   export PATH="$PWD/.bin:$PATH"
   echo "INFO: Ruby Version: $(ruby -v)"
   echo "INFO: Bundler Version: $(bundle -v)"
