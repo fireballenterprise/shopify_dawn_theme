@@ -1,10 +1,10 @@
 namespace :shopify do
-  desc 'Pull live theme from Shopify store to local development branch'
+  desc 'Pull live theme from Shopify store to local development branch. Pass THEME=<name_or_id> to specify theme.'
   task :pull do
     $logger.info('')
     $logger.info('Shopify Theme Pull')
     $logger.info('----------------------------------')
-    Shopify::Pull.run
+    Shopify::Pull.run(theme: ENV.fetch('THEME', nil))
   end
 
   desc 'Upgrade dawn_vanilla from upstream Shopify/dawn, then merge into development'

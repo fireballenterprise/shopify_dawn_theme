@@ -5,4 +5,12 @@ argument-hint: pull | upgrade
 agent: agent
 ---
 
-!`bundle exec rake shopify:${input:action:pull or upgrade}`
+Ask the user: what action do you want to run — `pull` or `upgrade`?
+
+If the action is `pull`, also ask: which theme should be pulled? (theme name or ID — leave blank to use the store default)
+
+Then run:
+
+- If action is `upgrade`: `bundle exec rake shopify:upgrade`
+- If action is `pull` with no theme: `bundle exec rake shopify:pull`
+- If action is `pull` with a theme: `bundle exec rake shopify:pull THEME="<theme>"`

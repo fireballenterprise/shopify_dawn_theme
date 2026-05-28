@@ -1,6 +1,6 @@
 module Shopify
   module Pull
-    def self.run
+    def self.run(theme: nil)
       require 'shellwords'
 
       repo_path = Shared::Properties.repo_local
@@ -9,12 +9,14 @@ module Shopify
       confirm_branch(repo_path)
       confirm_clean(repo_path)
 
+      theme_flag = theme ? " --theme=#{Shellwords.escape(theme)}" : ''
+
       $logger.info('')
-      $logger.info("Pulling theme from #{store}...")
+      $logger.info("Pulling theme#{" '#{theme}'" if theme} from #{store}...")
       $logger.info('')
 
       # shopify CLI requires a live TTY for auth and progress output — system() is intentional
-      success = system("shopify theme pull --store=#{Shellwords.escape(store)}")
+      success = system("shopify theme pull --store=#{Shellwords.escape(store)}#{theme_flag}")
 
       unless success
         $logger.error('shopify theme pull failed.')
