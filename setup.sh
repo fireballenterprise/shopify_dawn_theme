@@ -27,3 +27,22 @@ export PATH="$PWD/.bin:$PATH"
 echo "INFO: Ruby Version: $(ruby -v)"
 echo "INFO: Bundler Version: $(bundle -v)"
 echo 'RUN: export PATH="$PWD/.bin:$PATH"'
+
+# Shopify CLI environment variables
+echo -e
+echo "INFO: Shopify CLI Environment Setup"
+echo "These values are used by 'shopify theme pull/push' and rake shopify tasks."
+echo "Values are exported for this session only — not written to any file."
+echo -e
+
+read -rp "Enter your Shopify store domain (e.g. mystore.myshopify.com): " shopify_store
+read -rsp "Enter your Shopify Theme Access token (from Shopify Admin > Apps > Theme Access): " shopify_token
+echo -e
+
+if [[ -n "$shopify_store" && -n "$shopify_token" ]]; then
+  export SHOPIFY_FLAG_STORE="$shopify_store"
+  export SHOPIFY_CLI_THEME_TOKEN="$shopify_token"
+  echo "INFO: Shopify env vars exported for this session."
+else
+  echo "WARN: Skipping Shopify env setup — one or both values were blank."
+fi

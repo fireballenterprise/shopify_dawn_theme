@@ -15,5 +15,5 @@
   "chat.tools.terminal.autoApprove": {
     "bundle exec rake *": true,
     "bundle exec rubocop *": true
- }
+  }
 }
