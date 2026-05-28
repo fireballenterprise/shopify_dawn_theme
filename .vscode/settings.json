@@ -13,7 +13,7 @@
   },
   "themeCheck.checkOnSave": true,
   "chat.tools.terminal.autoApprove": {
-    "bundle exec rake *": true,
-    "bundle exec rubocop *": true
+    "/^bundle exec rake( |$)/": true,
+    "/^bundle exec rubocop( |$)/": true
   }
 }
