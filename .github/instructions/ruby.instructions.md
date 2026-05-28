@@ -5,7 +5,15 @@ applyTo: "**/*.rb"
 # Ruby Instructions
 
 ## Ruby Version
-Target: `~> 3.4.0` (defined in `Gemfile`)
+Target: `~> 4.0.0` (defined in `Gemfile`, pinned to `4.0.5` in `.ruby-version`)
+- Managed via `rbenv`; install with `arch -arm64 rbenv install 4.0.5` (Apple Silicon native)
+- `.rubocop.yml` `TargetRubyVersion: 4.0`
+
+## VS Code Tooling
+- **Ruby LSP** (`Shopify.ruby-lsp`) provides language features and runs RuboCop from the project bundle
+- Configured in `.vscode/settings.json` to use `rbenv` + the project's `Gemfile`
+- Do **not** install `lorankloeze.ruby-rubocop-revived` — it duplicates Ruby LSP's RuboCop integration
+- `Shopify.theme-check-vscode` handles Liquid linting (separate from Ruby tooling)
 
 ## Style & Linting
 - **RuboCop** enforces all style rules — run `rake test:ruby:rubocop` to check

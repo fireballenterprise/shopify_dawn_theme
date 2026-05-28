@@ -59,6 +59,25 @@ tasks/
 - `logger` — logging (`~> 1.7`)
 - `benchmark`, `base64`, `ostruct` — stdlib gems
 
+## Git Branch Architecture
+```
+upstream/main (Shopify/dawn)
+      │
+      ▼
+dawn_vanilla      # Tracks upstream Shopify Dawn — never customized
+      │
+      ▼
+development       # Integration branch — custom work merged here
+      │
+      ▼
+main              # Production branch — only promoted from development
+```
+- `dawn_vanilla` — local branch that pulls from `upstream/main` (Shopify's repo). Keeps Shopify's history separate from custom code.
+- `development` — active development branch. PRs merge here; deploys to the dev Shopify theme on merge.
+- `main` — production branch. Only updated via `promote_to_prd` workflow (manual, requires confirmation). Deploys to live store.
+- `feature/*` — short-lived feature branches; PR targets `development`.
+- Upstream Dawn upgrades: `rake shopify:upgrade` fetches `upstream/main` → merges into `dawn_vanilla` → merges into `development`. No manual branch switching needed.
+
 ## Running Tasks
 ```sh
 rake                      # List all tasks (default)

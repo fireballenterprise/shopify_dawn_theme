@@ -1,12 +1,11 @@
 ---
-name: Protected Branches
+name: Feature Branches
 
 on:
-  push:
+  pull_request:
     branches:
       - main
       - development
-      - dawn_vanilla
 
 jobs:
   tests:

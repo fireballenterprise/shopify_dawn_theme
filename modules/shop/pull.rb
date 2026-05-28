@@ -1,7 +1,9 @@
 module Shopify
   module Pull
-    def self.run
+    def self.run(theme: nil)
       require 'shellwords'
+
+      ensure_shopify_env!
 
       repo_path = Shared::Properties.repo_local
       store     = Shared::Properties.shopify_store
@@ -9,12 +11,14 @@ module Shopify
       confirm_branch(repo_path)
       confirm_clean(repo_path)
 
+      theme_flag = theme ? " --theme=#{Shellwords.escape(theme)}" : ''
+
       $logger.info('')
-      $logger.info("Pulling theme from #{store}...")
+      $logger.info("Pulling theme#{" '#{theme}'" if theme} from #{store}...")
       $logger.info('')
 
       # shopify CLI requires a live TTY for auth and progress output — system() is intentional
-      success = system("shopify theme pull --store=#{Shellwords.escape(store)}")
+      success = system("shopify theme pull --store=#{Shellwords.escape(store)}#{theme_flag}")
 
       unless success
         $logger.error('shopify theme pull failed.')
@@ -25,6 +29,43 @@ module Shopify
       show_changes(repo_path)
       $logger.info('')
       $logger.info('Review changes above, then run /push to commit and push to git.')
+    end
+
+    def self.ensure_shopify_env!
+      store_set = ENV['SHOPIFY_FLAG_STORE'].to_s.strip
+      token_set = ENV['SHOPIFY_CLI_THEME_TOKEN'].to_s.strip
+
+      return if store_set.length.positive? && token_set.length.positive?
+
+      $logger.warn('SHOPIFY_FLAG_STORE and/or SHOPIFY_CLI_THEME_TOKEN are not set.')
+
+      unless $stdin.tty?
+        $logger.error('Cannot prompt for Shopify credentials in a non-interactive session. Set env vars and retry.')
+        exit(1)
+      end
+
+      $logger.info('These values are used by shopify theme pull and are exported for this session only.')
+      $logger.info('')
+
+      if store_set.empty?
+        print 'Enter your Shopify store domain (e.g. mystore.myshopify.com): '
+        store_set = $stdin.gets.to_s.chomp.strip
+      end
+
+      if token_set.empty?
+        print 'Enter your Shopify Theme Access token (from Shopify Admin > Apps > Theme Access): '
+        token_set = $stdin.gets.to_s.chomp.strip
+      end
+
+      if store_set.empty? || token_set.empty?
+        $logger.error('Store domain and token are required. Pull cancelled.')
+        exit(1)
+      end
+
+      ENV['SHOPIFY_FLAG_STORE']       = store_set
+      ENV['SHOPIFY_CLI_THEME_TOKEN']  = token_set
+      $logger.info('Shopify env vars set for this session.')
+      $logger.info('')
     end
 
     def self.confirm_branch(repo_path)

@@ -33,9 +33,9 @@ module Repo
 
     def self.create_slug(text)
       slug = text.downcase.gsub(' ', '_')
-      slug = slug.gsub(/[^a-z0-9_\-]/, '')
-      slug = slug.gsub(/[_\-]+/, '_')
-      result = slug.gsub(/\A[_\-]+|[_\-]+\z/, '')
+      slug = slug.gsub(/[^a-z0-9_-]/, '')
+      slug = slug.gsub(/[_-]+/, '_')
+      result = slug.gsub(/\A[_-]+|[_-]+\z/, '')
       result.empty? ? 'log' : result
     end
 

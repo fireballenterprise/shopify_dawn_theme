@@ -2,19 +2,12 @@
 name: Deploy to Development
 
 on:
-  push:
-    branches:
-      - development    # Only trigger when pushing to development branch (i.e., when PR is merged)
+  workflow_call:       # allows calling from merge_to_dev.yml
   workflow_dispatch:   # allows manual triggering
 
 jobs:
-  # 🧪 Call test workflow first
-  test:
-    uses: ./.github/workflows/tests.yml
-
   # 🚀 Deploy job
   deploy_dev:
-    needs: test  # Wait for test job to finish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

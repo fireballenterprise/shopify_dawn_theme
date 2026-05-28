@@ -25,7 +25,6 @@ module Shared
     end
 
     def self.find_properties_file
-      require 'pathname'
       # Search upward from current working directory
       current = Pathname.new(Dir.pwd).expand_path
       ([current] + current.ascend.to_a).each do |dir|

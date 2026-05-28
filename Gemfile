@@ -1,5 +1,5 @@
 source 'https://rubygems.org/'
-ruby '~> 3.4.0'
+ruby '~> 4.0.0'
 
 source 'https://rubygems.org/' do
   gem 'base64'
@@ -13,6 +13,7 @@ source 'https://rubygems.org/' do
   gem 'rake'
   gem 'rubocop'
   gem 'rubocop-rake', require: false
+  gem 'ruby-lsp', require: false
   gem 'theme-check'
   gem 'tty-prompt'
 end

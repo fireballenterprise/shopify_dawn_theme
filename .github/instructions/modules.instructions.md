@@ -12,7 +12,7 @@ Library modules provide reusable Ruby logic consumed by rake tasks, prompts, and
 |------|-----------|---------|
 | `modules/shared/` | `Shared::*` | Helpers tightly coupled to rake tasks |
 | `modules/repo/` | `Repo::*` | Git workflow logic (pull, push, log) |
-| `modules/shopify/` | `Shopify::*` | Shopify CLI and Dawn upgrade workflows |
+| `modules/shop/` | `Shopify::*` | Shopify CLI and Dawn upgrade workflows |
 
 ## Module Conventions
 - All modules use `self.method_name` — no class instantiation
