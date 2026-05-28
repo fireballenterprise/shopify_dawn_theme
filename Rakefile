@@ -8,6 +8,9 @@ require 'logger'
 require 'rubocop-rake'
 
 # Load Ruby Libraries
+Dir.glob('modules/**/*.rb').each do |file|
+  require_relative file.gsub('.rb', '')
+end
 Dir.glob('tasks/**/*.rb').each do |file|
   require_relative file.gsub('.rb', '')
 end

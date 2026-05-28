@@ -1,0 +1,13 @@
+---
+name: Protected Branches
+
+on:
+  push:
+    branches:
+      - main
+      - development
+      - dawn_vanilla
+
+jobs:
+  tests:
+    uses: ./.github/workflows/tests.yml

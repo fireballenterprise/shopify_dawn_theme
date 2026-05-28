@@ -10,6 +10,11 @@ echo -e
 echo "INFO: Activating Virtual Environment"
 rbenv local $project_ruby_version || exit 1
 
+# Install Tools
+echo -e
+echo "INFO: Installing Tools (Homebrew)"
+brew install actionlint
+
 # Download Project Libraries
 echo -e
 echo "INFO: Installing Libraries (Gemfile)"
