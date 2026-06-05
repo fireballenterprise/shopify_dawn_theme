@@ -144,9 +144,21 @@ Please exercise caution as any changes made to this file may be overwritten.
   })
 </script>
 
+<div id="essential-loyalty-landing-page" style="max-width: var(--essential-page-max-width); margin: 0 auto;">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when '@app' %}
+        {% render block %}
+    {% endcase %}
+  {% endfor %}
+</div>
+
 {% schema %}
 {
   "name": "Landing Page Settings",
+  "blocks": [
+    { "type": "@app" }
+  ],
   "settings": [
     {
       "type": "header",
