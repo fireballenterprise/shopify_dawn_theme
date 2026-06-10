@@ -75,7 +75,11 @@ Please exercise caution as any changes made to this file may be overwritten.
 
 <script>
   window.HoneyProxyPrefix = "{{ metafield.proxy_prefix }}";
+  /* Skip Alpine injection if the host theme already ships it (e.g. Pixel Union
+   * Empire family). A second Alpine triggers Alpine.start() twice and renders
+   * every x-for list as duplicate sibling DOM (3 rewards displayed as 6). */
   window.addEventListener('load', function () {
+    if (window.Alpine || window.deferLoadingAlpine) return;
     [
       "https://unpkg.com/alpinejs",
       "https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"
